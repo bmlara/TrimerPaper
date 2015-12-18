@@ -129,14 +129,14 @@ that keeps us in line with the idea of understanding propagation through wavegui
 
 Substituting the propagated field vector, Eq.(\ref{eq:sol}) considering as propagator Eq.(\ref{eq:prop}), into the mode coupling equation, Eq.(\ref{eq:diff}), is a cumbersome but straightforward operation that yields a set of eight coupled differential equations,
 \begin{eqnarray}
-	\iota_{+}^{\prime} &=& g_{01} \left( \iota_{+}^2 + 1 \right) + g_{12}  \iota_{+}  \nu_{+} - i  g_{03}   \nu_{+},   \\
+	\iota_{+}^{\prime} &=& g_{01} \left( \iota_{+}^2 + 1 \right) + g_{12}  \iota_{+}  \nu_{+} - i  g_{03}   \nu_{+},    \label{eq:iota} \\
 	\iota_{0}^{\prime} &=& i \left[ \left(- 2 g_{01} + i g_{02} \mu_{+}  \right) \iota_{+}  - g_{02} \nu_{+} + g_{12} \mu_{+} \right], \\
 	\iota_{-}^{\prime} &=& e^{i \iota_0} \left( g_{1} - i g_{02}\mu_{+} \right), \\
 	\mu_{+}^{\prime} &=& \left( - g_{01} + i  g_{02} \mu_{+} \right) \iota_{+} \mu_{+}    +  g_{12} \left( \mu_{+}^2 +  1 \right)\nonumber \\
 	&&  +  \left( i  g_{01} + g_{02} \mu_{+} \right) \nu_{+},   \\
 	\nu_{+}^{\prime} &=& g_{01} \iota_{+} 
 	\nu_{+} + g_{02} (  \nu_{+} ^2
-	+ 1)-i  g_{12} \iota_{+}, \\
+	+ 1)-i  g_{12} \iota_{+}, \label{eq:mu} \\
 	y_{0}^{\prime} &=& -i\frac{3}{2}  
 	[ g_{02}   \nu_{+}+  \mu_{+}  
 	( g_{12}+i  g_{02} \iota_{+})],  \\
@@ -146,7 +146,7 @@ Substituting the propagated field vector, Eq.(\ref{eq:sol}) considering as propa
 	\mu_{-}^{\prime} &=&  e^{i y_0-\frac{1}{2}i \iota_0}
 	( g_{12}+i  g_{02} \iota_{+}), 
 \end{eqnarray}
-where, for the sake of space, we have used $f \equiv f(z)$ and $f' \equiv \partial f(z) / \partial z $ for all propagation dependent auxiliary functions and couplings.
+where, for the sake of space, we have used $f \equiv f(z)$ and $f' \equiv \partial_{z} f(z)$ for all propagation dependent auxiliary functions and couplings.
 
 Non-linear differential equations are known to be hard to solve and finding a solution 
 often requires intuition and knowledge of the system being analyzed. 
@@ -161,9 +161,9 @@ This feature allows us to conclude that the propagator functions are symmetric,
 \nu_{+}(z)&=&\nu_{-}(z) . \label{eq:sym3}
 \end{eqnarray}
 Furthermore, we observe that two equations, namely Eq.(\ref{eq:iota}) and Eq.(\ref{eq:mu}) only include terms of $\iota_{+}(z)$ and $\nu_{+}(z)$ and their derivatives. 
-Therefore, they are decoupled from the rest of the equations. 
+Therefore, they are decoupled from the rest. 
 Nonetheless, these two equations prove intractable and we will pursue a different route to finding a solution.
-For reason that will become apparent in a moment, we introduce a set of five auxiliary functions,
+For reasons that will become apparent in a moment, we introduce a set of five auxiliary functions,
 \begin{eqnarray}
 \Gamma(z) &=& e^{-\frac{3}{2} i y_{0}(z)} \\
 \Delta(z)&=& i e^{-\frac{3}{2} i y_{0}(z)} \mu_{\pm}(z) \\
@@ -203,7 +203,7 @@ via the identity,
 g_{01}(z)\Theta(z) + g_{12}(z) \Gamma(z) =  g_{02}(z) \Sigma (z) + g_{12}(z) \Pi (z),
 \end{eqnarray}
 which is a direct consequence of $\mu_{+}(z)=\mu_{-}(z)$.
-These two sets of differential equations can be readily solved with additional set of initial values,
+These two sets of differential equations can be readily solved with an additional set of initial values,
 \begin{eqnarray}
 \Theta(z)&=& 0 , \quad \Delta(z) =  0, \quad \Sigma(z)= 0,   \label{eq:initsa} \\
 \Gamma(z)&=& 1, \quad \Pi(z)= 1. \label{eq:initsb}
@@ -222,7 +222,9 @@ y_0(z) &=&  \dfrac{3}{2} i \log (\Gamma(z))\label{eq:yzeto}\\
 \end{eqnarray}
 Note that the phase functions $y_0(z)$ and $i_0(z)$ are of logarithmical nature and the rest are quotients of the products of the solution basis. 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Case of constant couplings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Trimer with constant couplings}
 
@@ -260,7 +262,7 @@ It is easy to see that $\Delta(\zeta)$ has the following solution,
 \begin{eqnarray}
 \Delta(\zeta) = \delta_{1} \: e^{i \gamma_1 \zeta} + \delta_{2} \: e^{i \gamma_2 \zeta} +  \delta_{3} \: e^{i \gamma_3 \zeta},
 \end{eqnarray}  
-where constant parameters  $\gamma_{j}$ are the eigenvalues of the mode-coupling matrix determined by the characteristic cubic polynomial,
+where constant parameters  $\gamma_{j}$ are the eigenvalues of the mode-coupling matrix determined by the characteristic polynomial, a reduced cubic,
 \begin{eqnarray}
 \gamma_{j}^{3} - (1+ \alpha^{2} + \beta^{2}) \gamma_{j} - 2 \alpha \beta = 0. \label{eq:poly}
 \end{eqnarray}
@@ -286,25 +288,54 @@ The remaining auxiliary functions are straightforward to calculate,
 Thus, the propagator functions, $\iota_{\pm}(z)$, $\mu_{\pm}(z)$, $\nu_{\pm}(z)$, $\iota_{0}(z)$ and $y_{0}(z)$, will effectively contain terms involving the three eigenvalues as well as sums and differences thereof.
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Practical examples
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Applications}
 
+Let us present some practical examples of optical trimers that may have a feasible experimental realization.
+
+
 \subsection{Identical couplings and the discrete Fourier transform}
 
+The mode-coupling matrix for three-identical waveguides distributed in an equilateral triangle configuration, $\alpha = \beta = 1$, 
 \begin{equation}
-H=\left( \begin{array}{ccc}
+\hat{H}=\left( \begin{array}{ccc}
 0 & 1 & 1 \\
 1 & 0 & 1 \\
-1 & 1 & 0 \end{array} \right)	 
+1 & 1 & 0 \end{array} \right),	 
 \end{equation}
-
-For the simple case of constant couplings, $g_{j,k}=g$, it is possible to propose a propagator similar to that used with $su(2)$ Lie algebras \cite{RodriguezLara2014p013802}
+is related to the cyclic group in dimension three, 
 \begin{eqnarray}
-U(\zeta) &=& \frac{1}{3}\left(
+\hat{H} =  \hat{Z}_{3} + \hat{Z}_{3}^{2} ,
+\end{eqnarray}
+where the generator of the cyclic group, 
+\begin{eqnarray}
+\hat{Z}_{3} &=& \hat{I}_{+} + \hat{U}_{+} + \hat{V}_{-}, \nonumber \\
+&=&\left(
+\begin{array}{ccc}
+ 0 & 1 & 0 \\
+ 0 & 0 & 1 \\
+ 1 & 0 & 0 \\
+\end{array}\right).
+\end{eqnarray}
+It is well known that the cyclic group is diagonalized by the discrete Fourier transform, $\hat{\Lambda} = \hat{F}_{n} \hat{Z}_{n} \hat{F}_{n}^{\dagger}$, where the discrete Fourier transform of rank $n$ is given by the operator $\hat{F}_{n}$,  in the case of $n=3$,
+\begin{eqnarray}
+\hat{F}_{3} &=& 
+\frac{1}{\sqrt{3}}
+\left(
+\begin{array}{ccc}
+ 1 & 1 & 1 \\
+ 1 & e^{\frac{2 i \pi}{3}} & e^{-\frac{2 i \pi}{3}} \\
+ 1 & e^{-\frac{2 i \pi}{3}} & e^{\frac{2 i \pi}{3}} \\
+\end{array}\right),
+\end{eqnarray}
+and $\hat{\Lambda}$ is a diagonal rank $n$ matrix containing the roots of unity, $\hat{\Lambda}_{mn} = \delta_{m,n} e^{ i \frac{2 \pi}{n} i}$ with $m,n = 0,1,2$.
+In this particular case, it is possible to compose a propagator,
+\begin{eqnarray}
+U(\zeta) &=& \hat{F}_{3}^{\dagger} e^{i \hat{\Lambda}_{3} \zeta} e^{i \hat{\Lambda}_{3}^{2} \zeta} \hat{F}_{3}, \nonumber \\
+&=& \frac{1}{3}\left(
 \begin{array}{ccc}
  2+e^{3 i \zeta} & -1+e^{3 i \zeta} & -1+e^{3 i \zeta} \\
  -1+e^{3 i \zeta} & 2+e^{3 i \zeta} & -1+e^{3 i \zeta} \\
@@ -312,51 +343,21 @@ U(\zeta) &=& \frac{1}{3}\left(
 \end{array}
 \right) e^{-i \zeta},
 \end{eqnarray}
-where we have used the fact that the discrete Fourier transform diagonalizes the cyclic group elements,
-\begin{eqnarray}
-e^{ i g z \hat{Z}_{3}} &=& \hat{F}^{\dagger} e^{ i \zeta  \hat{\Lambda} } \hat{F}, \\
-e^{ i g z \hat{Z}_{3}^{2}} &=& \hat{F}^{\dagger} e^{ i \zeta  \hat{\Lambda}^{2} } \hat{F}, 
-\end{eqnarray}
-where
-\begin{eqnarray}
-\hat{F} &=& 
-\frac{1}{\sqrt{3}}
-\left(
-\begin{array}{ccc}
- 1 & 1 & 1 \\
- 1 & e^{\frac{2 i \pi}{3}} & e^{-\frac{2 i \pi}{3}} \\
- 1 & e^{-\frac{2 i \pi}{3}} & e^{\frac{2 i \pi}{3}} \\
-\end{array}\right)
-\end{eqnarray}
+where we have used the fact that the elements of the cyclic group of rank $3$ commute between them, $\left[ \hat{Z}_{3} , \hat{Z}_{3}^{2} \right] = 0$ because $\hat{Z}_{3}^{3} = \mathbb{1}_{3}$.  
+
+Figure \ref{fig: Fig3} shows the trajectories described by the absolute value of the field amplitudes, $\vert \mathcal{E}_{j}(z)\vert$, as they propagate. 
+All of trajectories will lie over the surface of an octant of the sphere due to unitary propagation.
+Figure \ref{fig: Fig3}(a) shows the response to impulses, $\mathcal{E}_{j} = \delta_{j,k}$ with $j=0,1,2$ and a fixed $k=0,1,2$. 
+Figure \ref{fig: Fig3}(b) shows the trajectories given by initial field superpositions of the more general form: $\mathcal{E}_{j} = \alpha_{j} e^{i \phi t}$ with $\alpha \in \mathbb{R}$ and $\sum_{j} \vert \alpha_{j} \vert^{2} =1$.
+From the propagator, it is possible to see that only two commensurate frequencies are involved in the propagation of initial fields, thus, the trajectories will be closed and well defined.
 
 
-The generator of the cyclic group in dimension three is
-\begin{eqnarray}
-\hat{Z}_{3} =\left(
-\begin{array}{ccc}
- 0 & 1 & 0 \\
- 0 & 0 & 1 \\
- 1 & 0 & 0 \\
-\end{array}\right)
-\end{eqnarray}
-
-The mode-coupling matrix in this case, 
-\begin{eqnarray}
-\hat{H} = g \left( \hat{Z}_{3} + \hat{Z}_{3}^{2} \right)
-\end{eqnarray}
-The dispersion relation are just the three cubic roots of the unit.
-
-We can compose the propagator as:
-\begin{eqnarray}
-U(\zeta) &=& e^{ i  \hat{Z}_{3} \zeta}  e^{ i  \hat{Z}_{3}^2 \zeta}, \\
-&=& \frac{1}{3}\left(
-\begin{array}{ccc}
- 2+e^{3 i \zeta } & -1+e^{3 i \zeta} & -1+e^{3 i \zeta} \\
- -1+e^{3 i \zeta} & 2+e^{3 i \zeta} & -1+e^{3 i \zeta} \\
- -1+e^{3 i \zeta} & -1+e^{3 i \zeta} & 2+e^{3 i \zeta} \\
-\end{array}
-\right) e^{-i \zeta}
-\end{eqnarray}
+\begin{figure}[htbp]
+\centering
+\fbox{\includegraphics[width=\linewidth]{Fig3.pdf}}
+\caption{(Color online) Absolute amplitude trajectories, $(\vert E_{0}(z) \vert, \vert E_{1}(z) \vert, \vert E_{2}(z) \vert )$, for initial fields, $(\vert E_{0}(0) \vert, \vert E_{1}(0) \vert, \vert E_{2}(0) \vert )$, impinging (a) only the zeroth (black), $(1,0,0)$, first (blue), $(0,1,0)$, and second (red), $(0,0,1)$, waveguides and (b) initial fields impinging two waveguides at a time with and without a relative phase, $(\frac{1}{\sqrt{2}},\frac{1}{\sqrt{2}},0)$ (black), $(\frac{1}{\sqrt{2}},\frac{i}{\sqrt{2}},0)$ (blue), and $(\frac{2}{\sqrt{5}},0,\frac{i}{\sqrt{5}})$ (red).}
+\label{fig: Fig3}
+\end{figure}
 
 
 
@@ -497,3 +498,21 @@ third core.
 
 \end{document}
 
+\section{Trimer with two identical couplings}
+
+If we ease the general problem and allow two couplings to be equal, $g_{02}(z) = g_{12}(z) = g(z)$, it seems worthwhile trying to find a higher order differential equation for $\Delta(\zeta)$, which is the auxiliary function that connects the two sets of differential equations, Eq.(\ref{eq:set1}) and Eq.(\ref{eq:set2}).
+After some algebra, it is possible to write,
+\begin{equation}
+\Delta^{\prime \prime}(\zeta) - \left[ i g_{01}(z) + \frac{g^{\prime}(z)}{g(z)} \right]  \Delta^{\prime}(\zeta) + 2 g^{2}(z) \Delta(\zeta) = 0,\label{eq:ddiff}
+\end{equation}
+with initial values,
+\begin{eqnarray}
+\Delta(0) & = & 0 , \\
+\Delta^{\prime}(0) &=& i g(0). 
+\end{eqnarray}
+In this case, the remaining auxiliary functions are given by the following expressions,
+
+For example, the case of a constant coupling, $g_{01}$, and two sinusoidal coupling functions, 
+\begin{eqnarray}
+g(z) = g_{01} \left[ 1 + \alpha \sin \left( k z \right) \right], \quad \vert \alpha \vert < 1,
+\end{eqnarray}
