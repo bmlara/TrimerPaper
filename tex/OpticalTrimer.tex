@@ -75,10 +75,94 @@ g_{02}(z) & g_{12}(z) & 0
 \end{eqnarray}
 points to an underlying $SU(3)$ symmetry.
 
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% DRAFT
+%//////////////////////////////////////////////%//////
 
+\section{draft}
+The 
+\begin{eqnarray}
+	H = \sum{\omega_j \hat{a}^{\dagger}_j \hat{a}_j} + \sum{(a^{\dagger}_j a_k+a_j a^{\dagger}_k)g_{jk}}
+\end{eqnarray}
+
+Single photon limit:
+\begin{eqnarray}
+	\left|\psi\right\rangle = \mathcal{E}_0 \left|1\right\rangle
+	\left|0\right\rangle
+	\left|0\right\rangle +
+	\mathcal{E}_1 
+	\left|0\right\rangle
+	\left|1\right\rangle
+	\left|0\right\rangle +
+	\mathcal{E}_2 
+	\left|0\right\rangle
+	\left|0\right\rangle
+	\left|1\right\rangle
+\end{eqnarray}
+with
+\begin{eqnarray}
+	\sum_j{|\mathcal{E}_j|^2 = 1}
+\end{eqnarray}
+gives
+\begin{eqnarray}
+	-i \partial_z	
+	\left( \begin{array}{c} 
+		\mathcal{E}_0 \\
+		\mathcal{E}_1 \\
+		\mathcal{E}_2
+	\end{array} \right) =
+	\left( \begin{array}{ccc} 
+		\omega_0  & g_{01} & g_{02} \\
+		g_{01} & \omega_1 & g_{12} \\
+		g_{02} & g_{12} & \omega_2
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		\mathcal{E}_0 \\
+		\mathcal{E}_1 \\
+		\mathcal{E}_2
+	\end{array} \right)
+\end{eqnarray}
+Coherent state:
+\begin{eqnarray}
+	\left\langle H \right\rangle = \sum \omega_j |\mathcal{E}_j|^2 
+\end{eqnarray}
+with
+\begin{eqnarray}
+	\hat{a}_j | \mathcal{E}_j \rangle= e^{i \phi}|\mathcal{E}_j|| \mathcal{E}\rangle \\
+	\hat{n}_j | \mathcal{E}_j \rangle= |\mathcal{E}_j|^2| \mathcal{E}\rangle
+\end{eqnarray}
+and 
+\begin{eqnarray}
+ \partial_t \hat{n}_j &=& [\hat{n}_j,\hat{H}]\\
+ &=& afd
+\end{eqnarray}
+and
+\begin{eqnarray}
+\partial_t \hat{a}_j \hat{a}_j &=& [\hat{a}_j \hat{a}_j,\hat{H}]\\
+&=& afd
+\end{eqnarray}
+which is equal to the 
+\begin{eqnarray}
+\partial_t n_j = \frac{\partial H}{\partial \phi_j}\\
+\partial_t \phi_j = \frac{\partial H}{\partial n_j}  
+\end{eqnarray}
+and
+\begin{eqnarray}
+	[a^{\dagger}, a] = 1	
+\end{eqnarray}
+ad
+\begin{eqnarray}
+	{}[n, a] = 1 \\
+	{}[n, a^{\dagger}] = 1 \\
+	{}[aa, a] = 0 \\
+	{}[aa, a^{\dagger}] = 1 
+\end{eqnarray}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % A short introduction to $SU(3)$ and the formal solution to the most general model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 \section{$SU(3)$ breviary and solution to the general model}
 
@@ -101,19 +185,19 @@ Here, however, we will choose a different representation for the group \cite{Tic
 due to the fact that we can understand matrices $\hat{I}_{\pm}$, $\hat{U}_{\pm}$ and $\hat{V}_{\pm}$ as those describing the coupling of the electromagnetic field between waveguides zero and one, one and two, and zero and two, in that order.
 Thus, our mode-coupling matrix, in terms of the $SU(3)$ group, is given by the following expression,
 \begin{eqnarray}
-\hat{H} &=& g_{01}(z) \left( \hat{I}_{+} + \hat{I}_{-} \right) + g_{12}(z) \left( \hat{U}_{+} + \hat{U}_{-} \right)\nonumber \\
- & & +  g_{02}(z) \left( \hat{V}_{+} + \hat{V}_{-} \right).
+	\hat{H} &=& g_{01}(z) \left( \hat{I}_{+} + \hat{I}_{-} \right) + g_{12}(z) \left( \hat{U}_{+} + \hat{U}_{-} \right)\nonumber \\
+	 & & +  g_{02}(z) \left( \hat{V}_{+} + \hat{V}_{-} \right).
 \end{eqnarray}
 
 
 Now, let us revisit the power of using underlying symmetries to evaluate propagation in arrays of coupled waveguides \cite{VillanuevaVergara2015p}. 
 Any given normalized field vector that solves the Schr\"odinger-like mode coupling equation, Eq.(\ref{eq:diff}), 
 \begin{eqnarray}
-\vert \mathcal{E}(z) \rangle = \hat{U}(z)  \vert \mathcal{E}(0) \rangle, \label{eq:sol}
+	\vert \mathcal{E}(z) \rangle = \hat{U}(z)  \vert 	\mathcal{E}(0) \rangle, \label{eq:sol}
 \end{eqnarray}
 can be written in terms of a $su(3)$ Lie algebra, in other words, the propagator is given by the following expression, 
 \begin{eqnarray}
-\hat{U}(z) = \prod_{j=1}^{8} e^{i \theta_{j}(z) \hat{X}_{j}}.
+	\hat{U}(z) = \prod_{j=1}^{8} e^{i \theta_{j}(z) \hat{X}_{j}}.
 \end{eqnarray}
 where the algebra elements, $e^{i \theta_{j}(z) \hat{X}_{j}}$, are just the exponential map of the group generators, Eq.(\ref{eq:gens}), the functions $\theta_{j}(z)$ are complex functions ruled by the dynamics provided by the mode-coupling matrix, and the impinging field amplitudes are collected in the normalized initial field vector $\vert \mathcal{E}(0) \rangle$.
 
@@ -152,52 +236,50 @@ Non-linear differential equations are known to be hard to solve and finding a so
 often requires intuition and knowledge of the system being analyzed. 
 Before delving into details, we would like to point out a key feature of the present model, $\hat{H}^{T}(z) = \hat{H}(z)$, that is, the mode-coupling matrix is symmetric, and, as a direct consequence, the propagator shares the same property,
 \begin{equation}  
-\hat{U}^{T}(z)=\hat{U}(z).
+	\hat{U}^{T}(z)=\hat{U}(z).
 \end{equation} 
 This feature allows us to conclude that the propagator functions are symmetric,
 \begin{eqnarray}
-\iota_{+}(z)&=&\iota_{-}(z) \label{eq:sym1}\\
-\mu_{+}(z)&=&\mu_{-}(z)\\
-\nu_{+}(z)&=&\nu_{-}(z) . \label{eq:sym3}
+	\iota_{+}(z)&=&\iota_{-}(z) \label{eq:sym1}\\
+	\mu_{+}(z)&=&\mu_{-}(z)\\
+	\nu_{+}(z)&=&\nu_{-}(z) . \label{eq:sym3}
 \end{eqnarray}
 Furthermore, we observe that two equations, namely Eq.(\ref{eq:iota}) and Eq.(\ref{eq:mu}) only include terms of $\iota_{+}(z)$ and $\nu_{+}(z)$ and their derivatives. 
 Therefore, they are decoupled from the rest. 
 Nonetheless, these two equations prove intractable and we will pursue a different route to finding a solution.
 For reasons that will become apparent in a moment, we introduce a set of five auxiliary functions,
 \begin{eqnarray}
-\Gamma(z) &=& e^{-\frac{3}{2} i y_{0}(z)} \\
-\Delta(z)&=& i e^{-\frac{3}{2} i y_{0}(z)} \mu_{\pm}(z) \\
-\Theta(z)&=& e^{-\frac{2}{3}i y_0(z)} (-\iota_{\pm}(z) \mu_{\pm}(z) + i \nu_{\pm}(z)) \\
-\Pi(z)&=& e^{-\frac{2}{3} i y_{0} (z)}
-(e^{i y_0 (z)-\frac{1}{2} i \iota_0 (z)}
--\mu_{\pm} (z)^2) \\
-\Sigma(z)&=& e^{-\frac{2}{3} i y_0(z)} (i \iota_{\pm}(z) \Pi(z)
--\mu_{\pm}
-(z) \nu_{\pm}(z))
+	\Gamma(z) &=& e^{-\frac{3}{2} i y_{0}(z)} \\
+	\Delta(z)&=& i e^{-\frac{3}{2} i y_{0}(z)} \mu_{\pm}(z) \\
+	   \Theta(z)&=& e^{-\frac{2}{3}i y_0(z)} (-\iota_{\pm}(z) \mu_{\pm}(z) + i \nu_{\pm}(z)) \\
+	\Pi(z)&=& e^{-\frac{2}{3} i y_{0} (z)}
+	    (e^{i y_0 (z)-\frac{1}{2} i \iota_0 (z)}
+		-\mu_{\pm} (z)^2) \\
+	\Sigma(z)&=& e^{-\frac{2}{3} i y_0(z)} (i \iota_{\pm}(z) \Pi(z)-\mu_{\pm} (z) \nu_{\pm}(z))
 \end{eqnarray}
 These equations can be further decoupled,
 \begin{eqnarray}
-\left( \begin{array}{c}
-\Theta^{\prime}(z) \\
-\Delta^{\prime}(z) \\
-\Gamma^{\prime}(z) 
-\end{array} \right)=iH 
-\left( \begin{array}{c}
-\Theta(z) \\
-\Delta(z) \\
-\Gamma(z) 
-\end{array} \right) \label{eq:set1}\\
-\left( \begin{array}{c}
-\Sigma^{\prime}(z) \\
-\Pi^{\prime} (z) \\
-\Delta^{\prime}(z) 
-\end{array} \right)=iH 
-\left( \begin{array}{c}
-\Sigma(z) \label{eq:set2}\\
-\Pi (z) \\
-\Delta(z)  
-\end{array} \right)
-\end{eqnarray}
+	\left( \begin{array}{c}
+		\Theta^{\prime}(z) \\
+	\Delta^{\prime}(z) \\
+	\Gamma^{\prime}(z) 
+		\end{array} \right)=iH 
+		\left( \begin{array}{c}
+	\Theta(z) \\
+	\Delta(z) \\
+		\Gamma(z) 
+	\end{array} \right) \label{eq:set1}\\
+	\left( \begin{array}{c}
+	\Sigma^{\prime}(z) \\
+	\Pi^{\prime} (z) \\
+	\Delta^{\prime}(z) 
+	\end{array} \right)=iH 
+	\left( \begin{array}{c}
+	\Sigma(z) \label{eq:set2}\\
+	\Pi (z) \\
+	\Delta(z)  
+	\end{array} \right)
+	\end{eqnarray}
 via the identity, 
 \begin{eqnarray}
 g_{01}(z)\Theta(z) + g_{12}(z) \Gamma(z) =  g_{02}(z) \Sigma (z) + g_{12}(z) \Pi (z),
