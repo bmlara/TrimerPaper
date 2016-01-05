@@ -50,13 +50,13 @@ The planar platform has been used in three-waveguide nonlinear directional coupl
 
 Triangular three-waveguide nonlinear directional couplers have been used to design all-optical logic gates \cite{Menezes2007p107,Coelho2013p731}.
 
-Light propagating through a three-waveguide coupler with identical waveguides can be described by coupled mode theory, c.f. \cite{RodriguezLara2015p068014} and references therein,
+Light propagating through a three-waveguide coupler with can be described by coupled mode theory, c.f. \cite{RodriguezLara2015p068014} and references therein,
 \begin{eqnarray}
--i \partial_{z} \mathcal{E}_{0}(z) &=&  g_{01}(z) \mathcal{E}_{1}(z)(z) + g_{02}(z) \mathcal{E}_{2}(z), \\
- -i \partial_{z} \mathcal{E}_{1}(z) &=& g_{01}(z) \mathcal{E}_{0}(z)(z) + g_{12}(z) \mathcal{E}_{2}(z), \\
- -i \partial_{z} \mathcal{E}_{2}(z) &=& g_{02}(z) \mathcal{E}_{0}(z)(z) + g_{12}(z) \mathcal{E}_{1}(z),
+-i \partial_{z} \mathcal{E}_{0}(z) &=& \omega_{0}(z) \mathcal{E}_{0}(z) +   g_{01}(z) \mathcal{E}_{1}(z) + g_{02}(z) \mathcal{E}_{2}(z), \\
+ -i \partial_{z} \mathcal{E}_{1}(z) &=& \omega_{1}(z) \mathcal{E}_{1}(z) + g_{01}(z) \mathcal{E}_{0}(z) + g_{12}(z) \mathcal{E}_{2}(z), \\
+ -i \partial_{z} \mathcal{E}_{2}(z) &=& \omega_{2}(z) \mathcal{E}_{2}(z) + g_{02}(z) \mathcal{E}_{0}(z) + g_{12}(z) \mathcal{E}_{1}(z),
 \end{eqnarray}
-where the complex field amplitude at the $j$th waveguide is given by $\mathcal{E}_{j}(z)$ and the coupling between the $j$th and $k$th waveguides is $g_{jk}(z)$; we have obviated the common effective refractive index that just provides an overall phase.
+where the complex field amplitude at the $j$th waveguide is given by $\mathcal{E}_{j}(z)$, the effective refractive index at the $j$th waveguide is $\omega_{j}(z)$, and the effective coupling between the $j$th and $k$th waveguides is $g_{jk}(z)$.
 These complex field equations can be cast in a Schr\"odinger-like form \cite{RodriguezLara2015p068014},
 \begin{eqnarray}
 - i \partial_{z} \vert \mathcal{E}(z) \rangle = \hat{H}(z) \vert \mathcal{E}(z) \rangle,\label{eq:diff}
@@ -68,9 +68,9 @@ where kets from Dirac notation represent column vectors,
 and operators represent square matrices, in this particular case, the mode-coupling matrix,
 \begin{eqnarray}
 \hat{H}(z) = \left( \begin{array}{ccc} 
-0  & g_{01}(z) & g_{02}(z) \\
-g_{01}(z) & 0 & g_{12}(z) \\
-g_{02}(z) & g_{12}(z) & 0
+\omega_{0}(z)  & g_{01}(z) & g_{02}(z) \\
+g_{01}(z) & \omega_{1}(z) & g_{12}(z) \\
+g_{02}(z) & g_{12}(z) & \omega_{2}(z)
 \end{array} \right), \label{eq:hmlt}
 \end{eqnarray}
 points to an underlying $SU(3)$ symmetry.
@@ -80,57 +80,51 @@ points to an underlying $SU(3)$ symmetry.
 %//////////////////////////////////////////////%//////
 
 \section{draft}
-The 
-\begin{eqnarray}
-	H = \sum{\omega_j \hat{a}^{\dagger}_j \hat{a}_j} + \sum{(a^{\dagger}_j a_k+a_j a^{\dagger}_k)g_{jk}}
-\end{eqnarray}
 
-Single photon limit:
+In quantum mechanics, the Hamiltonian for three coupled harmonic oscillators, 
 \begin{eqnarray}
-	\left|\psi\right\rangle = \mathcal{E}_0 \left|1\right\rangle
-	\left|0\right\rangle
-	\left|0\right\rangle +
-	\mathcal{E}_1 
-	\left|0\right\rangle
-	\left|1\right\rangle
-	\left|0\right\rangle +
-	\mathcal{E}_2 
-	\left|0\right\rangle
-	\left|0\right\rangle
-	\left|1\right\rangle
+	\hat{H}(t) = \sum_{j=0}^{2} \omega_j(t) \hat{a}^{\dagger}_j \hat{a}_{j} + \sum_{j\neq k=0}^{2} g_{jk}(t) \hat{a}^{\dagger}_j \hat{a}_k,
 \end{eqnarray}
-with
+in the single photon limit,
 \begin{eqnarray}
-	\sum_j{|\mathcal{E}_j|^2 = 1}
+	\left\vert \psi(t) \right\rangle = \mathcal{E}_{0}(t) \left\vert 1, 0, 0 \right\rangle  +
+	\mathcal{E}_{1}(t) \left\vert 0,1,0 \right\rangle + \mathcal{E}_{2}(t) \left\vert 0,0,1 \right\rangle,
 \end{eqnarray}
-gives
+with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equation set equivalent to the mode coupling theory result, Eq.(\ref{eq:ddiff}) up to substitution of backwards time by propagation distance,
 \begin{eqnarray}
-	-i \partial_z	
+	i \partial_t	
 	\left( \begin{array}{c} 
-		\mathcal{E}_0 \\
-		\mathcal{E}_1 \\
-		\mathcal{E}_2
+		\mathcal{E}_{0}(t) \\
+		\mathcal{E}_{1}(t) \\
+		\mathcal{E}_{2}(t)
 	\end{array} \right) =
 	\left( \begin{array}{ccc} 
-		\omega_0  & g_{01} & g_{02} \\
-		g_{01} & \omega_1 & g_{12} \\
-		g_{02} & g_{12} & \omega_2
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
 	\end{array} \right)
 	\left( \begin{array}{c} 
-		\mathcal{E}_0 \\
-		\mathcal{E}_1 \\
-		\mathcal{E}_2
-	\end{array} \right)
+		\mathcal{E}_{0}(t) \\
+		\mathcal{E}_{1}(t) \\
+		\mathcal{E}_{2}(t)
+	\end{array} \right) .
 \end{eqnarray}
-Coherent state:
+
+In the classical limit, the state of the system should be represented by a separable coherent state,
 \begin{eqnarray}
-	\left\langle H \right\rangle = \sum \omega_j |\mathcal{E}_j|^2 
+\vert \mathcal{E} \rangle = \vert \mathcal{E}_{0}, \mathcal{E}_{1}, \mathcal{E}_{2}  \rangle.
+\end{eqnarray} 
+Coherent states are eigenstates of annihilation operators,  
+\begin{eqnarray}
+	\hat{a}_j | \mathcal{E}_{j} \rangle= |\mathcal{E}_j| e^{i \phi_{j}} | \mathcal{E}_{j}\rangle ,
+\end{eqnarray}
+where  we have used $\phi_{j}$ to represent the phase of the complex number $\mathcal{E}_{j}$.
+Thus, the average energy of such coherent state is,
+\begin{eqnarray}
+	\left\langle H \right\rangle = \sum_{j=0}^{2} \omega_{j} \vert \mathcal{E}_{j} \vert^2 
+	+ \sum_{j \neq k = 0}^{2} g_{jk} \vert \mathcal{E}_{j} \vert  \vert \mathcal{E}_{k} \vert \cos \left( \phi_{j} - \phi_{k} \right),
 \end{eqnarray}
 with
-\begin{eqnarray}
-	\hat{a}_j | \mathcal{E}_j \rangle= e^{i \phi}|\mathcal{E}_j|| \mathcal{E}\rangle \\
-	\hat{n}_j | \mathcal{E}_j \rangle= |\mathcal{E}_j|^2| \mathcal{E}\rangle
-\end{eqnarray}
 and 
 \begin{eqnarray}
  \partial_t \hat{n}_j &=& [\hat{n}_j,\hat{H}]\\
