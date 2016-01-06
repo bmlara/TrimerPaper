@@ -112,6 +112,8 @@ with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equ
 \end{eqnarray}
 This is just off-topic, we really will focus on this in the next section, right now we want to focus on something else.
 
+\textcolor{red}{This can also be done with the idea of Euler angles for $SU(3)$ in \cite{Nelson1967p857}}
+
 In the classical limit, the canonical pair provided by the creation and annihilation operators can be replaced by the classical canonical pair of intensity and phase, $\left\{ n_{j}, \phi_{j} \right\}$, $ \hat{a}_{j} \rightarrow \sqrt{n_{j}}e^{i \phi_{j}}$. 
 This delivers a classical Hamiltonian, 
 \begin{eqnarray}
@@ -124,6 +126,11 @@ the equations of motion for the canonical pairs are
 \partial_t \phi_j = - \frac{\partial H}{\partial n_j}  
 \end{eqnarray}
 and these are the coupled mode equations describing the evolution of intensity and phase.
+
+Classicam mechanics: if the three normal modes frequencies, e.g. eigenvalues of the mode-coupling matrix in Eq.(9), are commesurate then the propagated complex fields will be periodic \cite{Goldstein1980}. 
+
+In order to visualize the dynamics of the system we will choose a (pseudo?) Poincar\'e phase-space given by the square roots of the three waveguide intensities $(\vert \mathcal{E}_{0} \vert,\vert \mathcal{E}_{1} \vert,\vert \mathcal{E}_{2} \vert )$.
+Here  normal mode frequencies that are rational multiples of each other, commesurate, will translate into well-defined closed trajectories. For incommesurate normal frequencies the trajectories will be ergodic and fill a region of phase space defined by the energy of the motion \cite{Goldstein1980}.
 
 
 Note that requiring a normalized intensity in the optical system translates into $\sum_{j} n_{j} = 1$, this obviates the use of $\partial_{t} n_{2}$ and suggest taking the phase at the $j=2$ as reference as $\partial_{t} \phi_{2} = 0$. This reduces the problem by one degree of freedom to two degrees of freedom.
@@ -140,7 +147,7 @@ We are ploting the absolute amplitudes $(\vert E_{0}(z) \vert, \vert E_{1}(z) \v
 \end{figure}
 
 Dealing with the problem in the intensity-phase picture does not make it easier to solve but it provides insight.
-Given a trimmer parameter set, $S(z) = \left\{ \omega_{j}(z), g_{jk}(z) \right\}$, and an initial field configuration, $\mathcal{E}(0) = \left\{ \mathcal{E}_{j}(0) \right\}$, it is possible to calculate the energy of the orbit, $H(0) = \epsilon\left(S(0), \mathcal{E(0)}\right)$. Then, it is possible to find the conditions that define the envelope of such orbit in the absolute value of the field amplitude plots via simultaneous minimization of $H(z) - \epsilon = 0 $,  $\partial_t n_j = 0$ and $\partial_t \phi_j = 0$ for $j= 0,1$.
+Given a trimmer parameter set, $S(z) = \left\{ \omega_{j}(z), g_{jk}(z) \right\}$, and an initial field configuration, $\mathcal{E}(0) = \left\{ \mathcal{E}_{j}(0) \right\}$, it is possible to calculate the energy of the orbit, $H(0) = \epsilon\left(S(0), \mathcal{E(0)}\right)$. Then, it is possible to find the conditions that define the envelope of such orbit in the absolute value of the field amplitude plots via simultaneous elimination of the phase variables with $H(z) - \epsilon = 0 $ and $\partial_t \phi_j = 0$ for $j= 0,1$.
 
 
 
@@ -152,6 +159,12 @@ Given a trimmer parameter set, $S(z) = \left\{ \omega_{j}(z), g_{jk}(z) \right\}
 
 
 \section{Group theory and propagators}
+
+\textcolor{red}{Actions of elements of $su(3)$ on elements of $SU(3)$ \cite{Nelson1967p857}}
+
+\textcolor{red}{Coherent states for $SU(3)$ \cite{Gnutzmann1998p9871}}
+
+\textcolor{red}{$SU(3)$ intelligents states on terms of harmonic oscillators \cite{Rowe1999p3604}}
 
 Group theory, as an instrument to explore the underlying structure of mathematical models describing the physical world, brings a layer of abstraction into physics that allows deeper insight.
 For example, unitary matrices of rank three, just like our mode-coupling matrix in Eq.(\ref{eq:hmlt}), are commonly characterized by the special unitary group $SU(3)$.
