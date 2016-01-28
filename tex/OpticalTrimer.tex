@@ -6,24 +6,23 @@
 
 \setboolean{shortarticle}{false} % true = letter, false = research article
 
-\title{Optical trimmer, \\ A theoretical physics approach to photonic lattices}
+\title{Optical trimer, \\ A theoretical physics approach to waveguide couplers}
 
 \author[1]{A. Stoffel}
-\author[2,*]{B. M. Rodríguez-Lara}
+\author[1,*]{B. M. Rodríguez-Lara}
 
 \affil[1]{Instituto Nacional de Astrof\'{\i}sica, \'Optica y Electr\'onica, Calle Luis Enrique Erro No. 1, Sta. Ma. Tonantzintla, Pue. CP 72840, M\'exico}
-\affil[2]{Instituto Nacional de Astrof\'{\i}sica, \'Optica y Electr\'onica, Calle Luis Enrique Erro No. 1, Sta. Ma. Tonantzintla, Pue. CP 72840, M\'exico}
 
 \affil[*]{Corresponding author: bmlara@inaoep.mx}
 
 \dates{Compiled \today}
 
-\ociscodes{(050.5298) Photonic crystals; (230.4555) Coupled Resonators; (230.7370) Waveguides;  (350.5500) Propagation. \textcolor{red}{Is there any waveguide devices?}}
+\ociscodes{(050.5298) Photonic crystals; (230.4555) Coupled Resonators; (230.7370) Waveguides;  (350.5500) Propagation.}
 
 \doi{\url{http://dx.doi.org/10.1364/ao.XX.XXXXXX}}
 
 \begin{abstract}
-We study electromagnetic field propagation through a triangular array of identical waveguides using a symmetry based approach to take advantage of the underlying $SU(3)$ symmetry.
+We study electromagnetic field propagation through a general three-waveguide coupler  using a symmetry based approach to take advantage of the underlying $SU(3)$ symmetry.
 
 \end{abstract}
 
@@ -40,48 +39,58 @@ We study electromagnetic field propagation through a triangular array of identic
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
-\textcolor{red}{Some random ideas that may help write a coherent introduction, in no particular order}
+The planar three-waveguide coupler \cite{Iwasaki1975p100} has proven a reliable platform for optical devices. 
+It has been shown to provide tunable sampling, filtering \cite{Haus1981p2321},  modulation \cite{Donelly1985p18} and power coupling \cite{Charczenko1989p202} in voltage driven systems, as well as power dividers and combiners in passive devices \cite{Donelly1983p417,Donelly1986p610,Donelly1987p401,Kubo1989p1924} that have allowed efficient signal referencing for integrated optical biosensors \cite{Luff1998p583}.
 
-In chemistry, a trimer is composed of three identical building blocks, we can borrow such an idea and think of three coupled identical photonic waveguides as an optical trimer.
+In most of the reported literature, optimization seems the standard approach  favored by the optics community to design waveguide couplers \cite{Su1989p1666,Petrovic2015p139} but, recently, analogies with quantum mechanical systems have provided an alternative complementary approach \cite{PerezLeija2013p012309,PerezLeija2013p022303}. 
+This has also impacted the design of planar three-waveguide couplers that, for example,  have provided fast, robust directional beam coupling designed either by standard optimization \cite{Ng1999p475,Schneider2001p129,Narevicius2005p3362} or by quantum analogies \cite{Paspalakis2006p30,Salandrino2009p4524,Tseng2013p2478,RodriguezLara2014p013802}.
 
-Passive planar three-waveguide couplers have proved a reliable platform for fast, robust beam coupling based on adiabatic coupling or Ermakov-Lewis-Riesenfeld invariants \cite{Schneider2001p129,Narevicius2005p3362,Tseng2013p2478,Paspalakis2006p30,Salandrino2009p4524,RodriguezLara2014p013802}.
- 
-The planar platform has been used in three-waveguide nonlinear directional couplers, where the waveguides present an active Kerr nonlinearity, to produce all-optical spatial switching \cite{Finlayson1990p2276,Stegeman1990p95,Artigas1996p53,Chen1997p287,Liu2003p2930,Khan2008p9417,Tao2011p071104} and logic gates \cite{Menezes2007p1191}.
+Here, our aim is to motivate photonic designers to go beyond analogies between photonic lattices and quantum systems. 
+We will try our best to bridge the gap between theoretical physics and optics to show how the underlying symmetries of a photonic lattice can shed light into the design process. 
+For this, we will use a general version of the three-waveguide coupler.
+In the next section, we will introduce the mode-coupling model and expose its underlying $SU(3)$ symmetry. 
+Then, we will show how to construct a propagator for any given physical configuration using a Gilmore-Perelomov coherent state approach \cite{VillanuevaVergara2015p}.
+In order to provide practical examples, we will focus on arrays of identical waveguides with three identical couplings, which are related to the discrete Fourier transform, an two identical couplings, which are related to the golden ratio and allow devices with a single stable output. 
+Finally, we will present a summary with possible extensions allowed by linear and nonlinear three-waveguide couplers.
 
-Triangular three-waveguide nonlinear directional couplers have been used to design all-optical logic gates \cite{Menezes2007p107,Coelho2013p731}.
 
-Light propagating through a three-waveguide coupler with can be described by coupled mode theory, c.f. \cite{RodriguezLara2015p068014} and references therein,
+\section{Three-waveguide coupler}
+
+Light propagating through an ideal, general three-waveguide coupler can be described by coupled mode theory, c.f. \cite{RodriguezLara2015p068014} and references therein,
 \begin{eqnarray}
--i \partial_{z} \mathcal{E}_{0}(z) &=& \omega_{0}(z) \mathcal{E}_{0}(z) +   g_{01}(z) \mathcal{E}_{1}(z) + g_{02}(z) \mathcal{E}_{2}(z), \\
- -i \partial_{z} \mathcal{E}_{1}(z) &=& \omega_{1}(z) \mathcal{E}_{1}(z) + g_{01}(z) \mathcal{E}_{0}(z) + g_{12}(z) \mathcal{E}_{2}(z), \\
- -i \partial_{z} \mathcal{E}_{2}(z) &=& \omega_{2}(z) \mathcal{E}_{2}(z) + g_{02}(z) \mathcal{E}_{0}(z) + g_{12}(z) \mathcal{E}_{1}(z),
+-i \partial_{z} \left( \begin{array}{c} \mathcal{E}_{0}(z) \\ \mathcal{E}_{1}(z) \\  \mathcal{E}_{2}(z) \end{array} \right) =  \left( \begin{array}{ccc} 
+\omega_{0}(z)  & g_{01}(z) & g_{02}(z) \\
+g_{01}(z) & \omega_{1}(z) & g_{12}(z) \\
+g_{02}(z) & g_{12}(z) & \omega_{2}(z)
+\end{array} \right) \left( \begin{array}{c} \mathcal{E}_{0}(z) \\ \mathcal{E}_{1}(z) \\  \mathcal{E}_{2}(z) \end{array} \right).
 \end{eqnarray}
-where the complex field amplitude at the $j$th waveguide is given by $\mathcal{E}_{j}(z)$, the effective refractive index at the $j$th waveguide is $\omega_{j}(z)$, and the effective coupling between the $j$th and $k$th waveguides is $g_{jk}(z)$.
+Here, the complex field amplitude at the $j$th waveguide is given by $\mathcal{E}_{j}(z)$, the effective refractive index at the $j$th waveguide is $\omega_{j}(z)$, and the effective coupling between the $j$th and $k$th waveguides is $g_{jk}(z)$.
 These complex field equations can be cast in a Schr\"odinger-like form \cite{RodriguezLara2015p068014},
 \begin{eqnarray}
 - i \partial_{z} \vert \mathcal{E}(z) \rangle = \hat{H}(z) \vert \mathcal{E}(z) \rangle,\label{eq:diff}
 \end{eqnarray}
-where kets from Dirac notation represent column vectors,
+where kets and operators in Dirac notation represent column vectors and square matrices, in that order.
+We can normalize the intensity, $\sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 =1$, as we are dealing with an ideal lossless device.
+Experimental realization of this model include, but are not limited, to laser inscribed photonic waveguides \cite{Szameit2010p163001} and  multicore optical fibers \cite{}, Fig. \ref{fig:Fig1}(a), whispering-mode cavities \cite{}, Fig. \ref{fig:Fig1}(b), or microwave resonators \cite{FrancoVillafane2013p170405} and standard RLC-circuits \cite{} for electromagnetic radiation outside the visible spectrum.
+
+The formal solution for this ordinary linear differential equation is provided by an ordered exponential \cite{Magnus1954p649,Blanes2009p151}, 
 \begin{eqnarray}
-\vert \mathcal{E}(z) \rangle = \left( \mathcal{E}_{0}(z), \mathcal{E}_{1}(z), \mathcal{E}_{2}(z) \right)^{T}, 
+\vert \mathcal{E}(z) \rangle = \mathrm{Texp} \left[ \int_{0}^{z} \hat{H}(x) dx \right] \vert \mathcal{E}(0) \rangle.
 \end{eqnarray}
-and operators represent square matrices, in this particular case, the mode-coupling matrix,
-\begin{eqnarray}
-\hat{H}(z) = \left( \begin{array}{ccc} 
-\omega_{0}(z)  & g_{01}(z) & g_{02}(z) \\
-g_{01}(z) & \omega_{1}(z) & g_{12}(z) \\
-g_{02}(z) & g_{12}(z) & \omega_{2}(z)
-\end{array} \right), \label{eq:hmlt}
+Usually, it is not straightforward to calculate the propagator,
+\begin{eqnarray} 
+\hat{U}(z) = \mathrm{Texp} \left[ \int_{0}^{z} \hat{H}(x) dx \right],
 \end{eqnarray}
-points to an underlying $SU(3)$ symmetry.
-For the sake of simplicity we will require a normalized total intensity, $\sum_{j} \vert \mathcal{E}_{j} \vert^2 =1$
+but underlying symmetries simplify this endeavor \cite{Lie1880p441,Neumaier2008}.
+While group theory is extensively used in mathematical optics \cite{Wolf2004,Lakshminarayanan2012}, it may be possible that the standard Lie algebra approach may look more complicated than it actually is for those outside that field, we hope that the following can help vanishing that feeling.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 %%%% DRAFT
 %//////////////////////////////////////////////%//////
 
 \section{Classical mechanics and envelopes}
-
 In quantum mechanics, the Hamiltonian for three coupled harmonic oscillators, 
 \begin{eqnarray}
 	\hat{H}(t) = \sum_{j=0}^{2} \omega_j(t) \hat{a}^{\dagger}_j \hat{a}_{j} + \sum_{j\neq k=0}^{2} g_{jk}(t) \hat{a}^{\dagger}_j \hat{a}_k,
@@ -91,7 +100,7 @@ in the single photon limit,
 	\left\vert \psi(t) \right\rangle = \mathcal{E}_{0}(t) \left\vert 1, 0, 0 \right\rangle  +
 	\mathcal{E}_{1}(t) \left\vert 0,1,0 \right\rangle + \mathcal{E}_{2}(t) \left\vert 0,0,1 \right\rangle,
 \end{eqnarray}
-with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equation set equivalent to the mode coupling theory result, Eq.(\ref{eq:ddiff}) up to substitution of backwards time by propagation distance,
+with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equation set equivalent to the mode coupling theory result, Eq.(\ref{eq:ddiff}) up to substitution of backwards time by propagation distance, or, better, 
 \begin{eqnarray}
 	i \partial_t	
 	\left( \begin{array}{c} 
@@ -111,6 +120,49 @@ with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equ
 	\end{array} \right) .
 \end{eqnarray}
 This is just off-topic, we really will focus on this in the next section, right now we want to focus on something else.
+
+We can use quadratures,
+\begin{eqnarray}
+\hat{q} = \frac{1}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right), ~ 
+\hat{p} = \frac{i}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right),
+\end{eqnarray}
+and consider classical variables, where we have accounted for the change in the time propagation,
+\begin{eqnarray}
+	i \partial_t	
+	\left( \begin{array}{c} 
+		p_{0}(t) \\
+		p_{1}(t) \\
+		p_{2}(t)
+	\end{array} \right) =
+	\left( \begin{array}{ccc} 
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		q_{0}(t) \\
+		q_{1}(t) \\
+		q_{2}(t)
+	\end{array} \right) , \\
+i \partial_t	
+	\left( \begin{array}{c} 
+		q_{0}(t) \\
+		q_{1}(t) \\
+		q_{2}(t)
+	\end{array} \right) = -
+	\left( \begin{array}{ccc} 
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		p_{0}(t) \\
+		p_{1}(t) \\
+		p_{2}(t)
+	\end{array} \right) ,
+\end{eqnarray}
+
+
 
 \textcolor{red}{This can also be done with the idea of Euler angles for $SU(3)$ in \cite{Nelson1967p857}}
 
@@ -579,6 +631,10 @@ third core.
 
 
 \end{document}
+
+
+A secondary motivation lies in the fact that conversion from amplitude modulation to phase modulation, as well as the converse, has been shown in a $PT$-symmetric three-waveguide coupler photonic devices with $SO(2,1)$ symmetry that may provide an alternative platform to Kerr nonlinear three-waveguide couplers which have been shown to provide all-optical spatial switching \cite{Finlayson1990p2276,Stegeman1990p95,Artigas1996p53,Chen1997p287,Liu2003p2930,Khan2008p9417,Tao2011p071104} and logic gates \cite{Menezes2007p1191,Menezes2007p107,Coelho2013p731}
+
 
 \section{Trimer with two identical couplings}
 
