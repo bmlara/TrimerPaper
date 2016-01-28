@@ -1,6 +1,73 @@
 \begin{thebibliography}{10}
 \newcommand{\enquote}[1]{``#1''}
 
+\bibitem{Iwasaki1975p100}
+K.~Iwasaki, S.~Kurazono, and K.~Itakura, \enquote{The coupling of modes in
+  three dielectric slab waveguides,} Electron. Comm. Jpn. \textbf{58}, 100 --
+  108 (1975).
+
+\bibitem{Haus1981p2321}
+H.~H. Haus and J.~C.~G.~Fonstad, \enquote{Three-waveguide couplers for improved
+  sampling and filtering,} IEEE J. Quantum Elect. \textbf{12}, 2321 -- 2325
+  (1981).
+
+\bibitem{Donelly1985p18}
+J.~P. Donelly, N.~L. Demeo, G.~A. Ferrante, and K.~B. Nichols, \enquote{A
+  high-frequency gaas optical guided-wave electrooptic interferometric
+  modulator,} IEEE J. Quantum Elect. \textbf{21}, 18 -- 21 (1985).
+
+\bibitem{Charczenko1989p202}
+W.~Charczenko and A.~R. Mickelson, \enquote{Symmetric and asymmetric
+  pertubations of the index of refraction in three-waveguide optical planar
+  couplers,} J. Opt. Soc. Am. A \textbf{6}, 202 -- 212 (1989).
+
+\bibitem{Donelly1983p417}
+J.~P. Donelly, J.~N.~L.~DeMeo, and G.~A. Ferrante, \enquote{Three-guide optical
+  couplers in gaas,} J. Lightwave Technol. \textbf{1}, 417 -- 424 (1983).
+
+\bibitem{Donelly1986p610}
+J.~P. Donelly, \enquote{Limitations on power-transfer efficiency in three-guide
+  optical couplers,} IEEE J. Quantum Elect. \textbf{22}, 610 -- 616 (1986).
+
+\bibitem{Donelly1987p401}
+J.~P. Donelly, H.~A. Haus, and N.~Whitaker, \enquote{Symmetric three-guide
+  optical coupler with nonidentical center and outside guides,} IEEE J. Quantum
+  Elect. \textbf{23}, 401 -- 406 (1987).
+
+\bibitem{Kubo1989p1924}
+H.~Kubo and K.~Yasumoto, \enquote{Numerical analysis of three-parallel embedded
+  optical waveguides,} J. Lightwave Technol. \textbf{7}, 1924 -- 1930 (1989).
+
+\bibitem{Luff1998p583}
+B.~J. Luff, J.~S. Wilkinson, J.~Piehler, U.~Hollenback, J.~Ingenhoff, and
+  N.~Fabricius, \enquote{Integrated optical mach-zehnder biosensor,} J.
+  Lightwave Technol. \textbf{16}, 583 -- 592 (1998).
+
+\bibitem{Su1989p1666}
+C.-C. Su and S.-E. Shih, \enquote{Optimization of power transfer in
+  multiple-waveguide couplers,} IEEE J. Quantum Elect. \textbf{25}, 1666 --
+  1670 (1989).
+
+\bibitem{Petrovic2015p139}
+J.~Petrovic, \enquote{Multiport waveguide couplers with periodic energy
+  exchange,} Opt. Lett. \textbf{40}, 139 -- 142 (2015).
+
+\bibitem{PerezLeija2013p012309}
+A.~Perez-Leija, R.~Keil, A.~Kay, H.~Moya-Cessa, S.~Nolte, L.-C. Kwek,
+  B.~Rodr\'{i}guez-Lara, A.~Szameit, and D.~Christodoulides, \enquote{Coherent
+  quantum transport in photonic lattices,} Phys. Rev. A \textbf{87}, 012309
+  (2013).
+
+\bibitem{PerezLeija2013p022303}
+A.~Perez-Leija, R.~Keil, H.~Moya-Cessa, A.~Szameit, and D.~N. Christodoulides,
+  \enquote{Perfect transfer of path-entangled photons in $j_{x}$ photonic
+  lattices,} Phys. Rev. A \textbf{87}, 022303 (2013).
+
+\bibitem{Ng1999p475}
+W.-C. Ng, M.~S. Stern, and S.-J. Chua, \enquote{The design of triple rib
+  waveguide couplers by the discrete spectral index method,} J. Lightwave
+  Technol. \textbf{17}, 475 -- 482 (1999).
+
 \bibitem{Schneider2001p129}
 V.~M. Schneider and H.~T. Hattori, \enquote{Wavelength insensitive asymmetric
   triple mode evolution couplers,} Opt. Commun. \textbf{187}, 129 -- 133
@@ -12,11 +79,6 @@ E.~Narevicius, R.~Narevich, Y.~Berlatzky, I.~Shtrichman, G.~Rosenblum, and
   evanescentcoupling-insensitive optical switching,} Opt. Lett. \textbf{30},
   3362 -- 3364 (2005).
 
-\bibitem{Tseng2013p2478}
-S.-Y. Tseng and Y.-W. Jhang, \enquote{Fast and robust beam coupling in a three
-  waveguide directional coupler,} IEEE Photonics Technology Letters
-  \textbf{25}, 2478--2481 (2013).
-
 \bibitem{Paspalakis2006p30}
 E.~Paspalakis, \enquote{Adiabatic three-waveguide directional coupler,} Opt.
   Commun. \textbf{258}, 30 -- 34 (2006).
@@ -26,76 +88,66 @@ A.~Salandrino, K.~Makris, D.~N. Christodoulides, Y.~Lahini, Y.~Silberberg, and
   R.~Morandotti, \enquote{Analysis of a three-core adiabatic directional
   coupler,} Opt. Commun. \textbf{282}, 4524 -- 4526 (2009).
 
+\bibitem{Tseng2013p2478}
+S.-Y. Tseng and Y.-W. Jhang, \enquote{Fast and robust beam coupling in a three
+  waveguide directional coupler,} IEEE Photonics Technology Letters
+  \textbf{25}, 2478--2481 (2013).
+
 \bibitem{RodriguezLara2014p013802}
 B.~M. Rodr{\'\i}guez-Lara, H.~M. Moya-Cessa, and D.~N. Christodoulides,
   \enquote{Propagation and perfect transmission in three-waveguide axially
   varying couplers,} Phys. Rev. A \textbf{89}, 013802 (2014).
 
-\bibitem{Finlayson1990p2276}
-N.~Finlayson and G.~I. Stegeman, \enquote{Spatial switching, instabilities, and
-  chaos in a three-waveguide nonlinear directional coupler,} Appl. Phys. Lett.
-  \textbf{56}, 2276 -- 2278 (1990).
-
-\bibitem{Stegeman1990p95}
-G.~I. Stegeman and E.~M. Wright, \enquote{All-optical waveguide switching,}
-  Opt. Quant. Electron. \textbf{22}, 95 -- 122 (1990).
-
-\bibitem{Artigas1996p53}
-D.~Artigas, J.~Olivas, F.~Dios, and F.~Canal, \enquote{Supermode analysis of
-  the three-waveguide nonlinear directional coupler: the critical power,} Opt.
-  Commun. \textbf{131}, 53 -- 60 (1996).
-
-\bibitem{Chen1997p287}
-Y.~Chen, \enquote{Fiber and integrated optics,} Fiber and Integrated Optics
-  \textbf{16}, 287--301 (1997).
-
-\bibitem{Liu2003p2930}
-G.~J. Liu, B.~M. Lang, Q.~Li, and G.~L. Jin, \enquote{Three-core nonlinear
-  directional coupler with variable coupling coefficient,} Opt. Eng.
-  \textbf{42}, 2930 -- 2935 (2003).
-
-\bibitem{Khan2008p9417}
-K.~R. Khan, T.~X. Wu, D.~N. Christodoulides, and G.~I. Stegeman,
-  \enquote{Soliton switching and multi-frequency generation in a nonlinear
-  photonic crystal fiber coupler,} Opt. Express \textbf{16}, 9417 -- 9428
-  (2008).
-
-\bibitem{Tao2011p071104}
-Q.~Tao, F.~Luo, L.~Cao, J.~Hu, D.~Cai, Z.~Wan, J.~Zhang, and Z.~Yu,
-  \enquote{Thermal stability analysis of nonlinear optical switch based on
-  assymetric three-core nonlinear directional coupler with variable gaussian
-  coupling coefficient,} Opt. Eng. \textbf{50}, 071104 (2011).
-
-\bibitem{Menezes2007p1191}
-J.~W.~M. Menezes, W.~B. de~Fraga, A.~C. Ferreira, K.~D.~A. Saboia, A.~F. G.~F.
-  Filho, G.~F. Guimaraes, J.~R.~R. Sousa, H.~H.~B. Rocha, and A.~S.~B. Sombra,
-  \enquote{Logic gates based in two- and three-modes nonlinear optical fiber
-  couplers,} Opt. Quantu. Electron. \textbf{39}, 1191 -- 1206 (2007).
-
-\bibitem{Menezes2007p107}
-J.~W.~M. Menezes, W.~B. de~Fraga, G.~F. Guimaraes, A.~C. Ferreira, H.~H.~B.
-  Rocha, M.~G. da~Silva, and A.~S.~B. Sombra, \enquote{Optical switches and
-  all-fiber logical devices based on triangular and planar three-core nonlinear
-  optical fiber couplers,} Opt. Commun. \textbf{276}, 107 -- 115 (2007).
-
-\bibitem{Coelho2013p731}
-J.~A.~G.~Coelho, M.~B. Costa, A.~C. Ferreira, M.~G. da~Silva, M.~L. Lyra, and
-  A.~S.~B. Sombra, \enquote{Realization of all-optical logic gates in a
-  triangular triple-core photonic crystal fiber,} J. Lightwave Technol.
-  \textbf{31}, 731 -- 739 (2013).
+\bibitem{VillanuevaVergara2015p}
+L.~V. Vergara and B.~M. Rodr\'iguez-Lara, \enquote{Gilmore-perelomov symmetry
+  based approach to photonic lattices,} Opt. Express \textbf{23}, 22836--22846
+  (2015).
 
 \bibitem{RodriguezLara2015p068014}
 B.~M. Rodr\'iguez-Lara, F.~Soto-Eguibar, and D.~N. Christodoulides,
   \enquote{Quantum optics as a tool for photonic lattice design,} Phys. Scr.
   \textbf{90}, 068014 (2015).
 
-\bibitem{Goldstein1980}
-H.~Goldstein, \emph{Classical mechanics} (Addison-Wesley, U.S.A., 1980).
+\bibitem{Szameit2010p163001}
+A.~Szameit and S.~Nolte, \enquote{Discrete optics in femtosecond-laser-written
+  photonic structures,} J. Phys. B: At. Mol. Opt. Phys. \textbf{43}, 163001
+  (2010).
+
+\bibitem{FrancoVillafane2013p170405}
+J.~A. Franco-Villafane, E.~Sadurn\'{i}, S.~Barkhofen, U.~Kuhl, F.~Mortessagne,
+  and T.~H. Selligman, \enquote{First experimental realization of the dirac
+  oscillator,} Phys. Rev. Lett. \textbf{111}, 170405 (2013).
+
+\bibitem{Magnus1954p649}
+W.~Magnus, \enquote{On the exponential solution of differential equations with
+  a linear operator,} Comm. Pure Appl. Math. \textbf{7}, 649 -- 673 (1954).
+
+\bibitem{Blanes2009p151}
+S.~Blanes, F.~Casas, J.~A. Oteo, and J.~Ros, \enquote{The magnus expansion and
+  some of its applications,} Physics Reports \textbf{470}, 151 -- 238 (2009).
+
+\bibitem{Lie1880p441}
+S.~Lie, \enquote{Theorie der transformationsgruppen i,} Math. Ann. \textbf{16},
+  441 -- 528 (1880).
+
+\bibitem{Neumaier2008}
+A.~Neumaier and D.~Westra, \enquote{Classical and quantum mechanics via lie
+  algebras,} ArXiv: 0810.1019.
+
+\bibitem{Wolf2004}
+K.~B. Wolf, \emph{Geometric optics on phase space} (Springer, Germany, 2004).
+
+\bibitem{Lakshminarayanan2012}
+V.~Lakshminarayanan, M.~L. Calvo, and T.~Alieva, eds., \emph{Mathematical
+  Optics} (CRC Press, Boca Raton, 2012).
 
 \bibitem{Nelson1967p857}
 T.~J. Nelson, \enquote{A set of harmonic functions for the group su(3) as
   specialized matrix elements of a general finite transformation,} J. Math.
   Phys. \textbf{8}, 857 -- 863 (1967).
+
+\bibitem{Goldstein1980}
+H.~Goldstein, \emph{Classical mechanics} (Addison-Wesley, U.S.A., 1980).
 
 \bibitem{Gnutzmann1998p9871}
 S.~Gnutzmann and M.~Ku\'s, \enquote{Coherent states and the classical limit on
@@ -119,10 +171,5 @@ R.~Ticciati, \emph{Quantum field theory for mathematicians} (Cambridge
 G.~Dattoli, P.~D. Lazzaro, and A.~Torre, \enquote{Su(1,1), su(2) and su(3)
   coherence-preserving hamiltonians and time-ordering techniques,} Phys. Rev. A
   \textbf{35}, 1582 -- 1589 (1987).
-
-\bibitem{VillanuevaVergara2015p}
-L.~V. Vergara and B.~M. Rodr\'iguez-Lara, \enquote{Gilmore-perelomov symmetry
-  based approach to photonic lattices,} Opt. Express \textbf{23}, 22836--22846
-  (2015).
 
 \end{thebibliography}
