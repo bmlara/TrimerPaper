@@ -22,10 +22,7 @@
 \doi{\url{http://dx.doi.org/10.1364/ao.XX.XXXXXX}}
 
 \begin{abstract}
-We study electromagnetic field propagation through an ideal, passive, triangular three-waveguide coupler using a symmetry based approach to take advantage of the underlying $SU(3)$ symmetry.
-The planar version of this platform has proven valuable in photonic circuit design providing optical sampling, filtering, modulating, multiplexing, and switching.
-We show that a group-theory approach can readily provide a starting point for design optimization of these devices.
-We also try to present our analysis as a practical tutorial on the use of group theory to study photonic lattices for those not familiar with abstract algebra methods.
+We study electromagnetic field propagation through a general three-waveguide coupler  using a symmetry based approach to take advantage of the underlying $SU(3)$ symmetry.
 \end{abstract}
 
 \setboolean{displaycopyright}{true}
@@ -48,12 +45,13 @@ In most of the reported literature, optimization seems the standard approach  fa
 This has also impacted the design of planar three-waveguide couplers that, for example,  have provided fast, robust directional beam coupling designed either by standard optimization \cite{Ng1999p475,Schneider2001p129,Narevicius2005p3362} or by quantum analogies \cite{Paspalakis2006p30,Salandrino2009p4524,Tseng2013p2478,RodriguezLara2014p013802}.
 
 Here, our aim is to motivate photonic designers to go beyond analogies between photonic lattices and quantum systems. 
-We will try our best to bridge the gap between theoretical physics and optics to show how the underlying symmetries of a photonic lattice can shed light into the photonic lattice design process. 
-For this, we will use a triangular three-waveguide coupler .
+We will try our best to bridge the gap between theoretical physics and optics to show how the underlying symmetries of a photonic lattice can shed light into the design process. 
+For this, we will use a general version of the three-waveguide coupler.
 In the next section, we will introduce the mode-coupling model and expose its underlying $SU(3)$ symmetry. 
 Then, we will show how to construct a propagator for any given physical configuration using a Gilmore-Perelomov coherent state approach \cite{VillanuevaVergara2015p}.
 In order to provide practical examples, we will focus on arrays of identical waveguides with three identical couplings, which are related to the discrete Fourier transform, an two identical couplings, which are related to the golden ratio and allow devices with a single stable output. 
 Finally, we will present a summary with possible extensions allowed by linear and nonlinear three-waveguide couplers.
+
 
 
 \section{Three-waveguide coupler}
@@ -64,7 +62,7 @@ Light propagating through an ideal, general three-waveguide coupler can be descr
 \omega_{0}(z)  & g_{01}(z) & g_{02}(z) \\
 g_{01}(z) & \omega_{1}(z) & g_{12}(z) \\
 g_{02}(z) & g_{12}(z) & \omega_{2}(z)
-\end{array} \right) \left( \begin{array}{c} \mathcal{E}_{0}(z) \\ \mathcal{E}_{1}(z) \\  \mathcal{E}_{2}(z) \end{array} \right). \label{eq:Eq1}
+\end{array} \right) \left( \begin{array}{c} \mathcal{E}_{0}(z) \\ \mathcal{E}_{1}(z) \\  \mathcal{E}_{2}(z) \end{array} \right).
 \end{eqnarray}
 Here, the complex field amplitude at the $j$th waveguide is given by $\mathcal{E}_{j}(z)$, the effective refractive index at the $j$th waveguide is $\omega_{j}(z)$, and the effective coupling between the $j$th and $k$th waveguides is $g_{jk}(z)$.
 These complex field equations can be cast in a Schr\"odinger-like form \cite{RodriguezLara2015p068014},
@@ -75,34 +73,242 @@ where kets and operators in Dirac notation represent column vectors and square m
 We can normalize the intensity, $\sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 =1$, as we are dealing with an ideal lossless device.
 Experimental realization of this model include, but are not limited, to laser inscribed photonic waveguides \cite{Szameit2010p163001} and  multicore optical fibers \cite{}, Fig. \ref{fig:Fig1}(a), whispering-mode cavities \cite{}, Fig. \ref{fig:Fig1}(b), or microwave resonators \cite{FrancoVillafane2013p170405} and standard RLC-circuits \cite{} for electromagnetic radiation outside the visible spectrum.
 
-The formal solution for this ordinary linear differential equation,
+The formal solution for this ordinary linear differential equation is provided by an ordered exponential \cite{Magnus1954p649,Blanes2009p151}, 
 \begin{eqnarray}
-\vert \mathcal{E}(z) \rangle = \hat{U}(z) \vert \mathcal{E}(0) \rangle. \label{eq:Eq3}
+\vert \mathcal{E}(z) \rangle = \mathrm{Texp} \left[ \int_{0}^{z} \hat{H}(x) dx \right] \vert \mathcal{E}(0) \rangle.
 \end{eqnarray}
-is provided by an ordered exponential \cite{Magnus1954p649,Blanes2009p151}, 
+Usually, it is not straightforward to calculate the propagator,
 \begin{eqnarray} 
-\hat{U}(z) = \mathrm{Texp} \left[ \int_{0}^{z} \hat{H}(x) dx \right].
+\hat{U}(z) = \mathrm{Texp} \left[ \int_{0}^{z} \hat{H}(x) dx \right],
 \end{eqnarray}
-Usually, it is not straightforward to calculate this propagator,
 but underlying symmetries simplify this endeavor \cite{Lie1880p441,Neumaier2008}.
-While group theory is extensively used in mathematical optics \cite{Wolf2004,Lakshminarayanan2012}, it may be possible that the standard Lie algebra approach may look more complicated than it actually is for those outside that field, we hope that the following can provide a working example for those doing photonic design outside the mathematical optics community.
+While group theory is extensively used in mathematical optics \cite{Wolf2004,Lakshminarayanan2012}, it may be possible that the standard Lie algebra approach may look more complicated than it actually is for those outside that field, we hope that the following can help vanishing that feeling.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%% DRAFT
+%//////////////////////////////////////////////%//////
+
+\section{Classical mechanics and envelopes}
+In quantum mechanics, the Hamiltonian for three coupled harmonic oscillators, 
+\begin{eqnarray}
+	\hat{H}(t) = \sum_{j=0}^{2} \omega_j(t) \hat{a}^{\dagger}_j \hat{a}_{j} + \sum_{j\neq k=0}^{2} g_{jk}(t) \hat{a}^{\dagger}_j \hat{a}_k,
+\end{eqnarray}
+in the single photon limit,
+\begin{eqnarray}
+	\left\vert \psi(t) \right\rangle = \mathcal{E}_{0}(t) \left\vert 1, 0, 0 \right\rangle  +
+	\mathcal{E}_{1}(t) \left\vert 0,1,0 \right\rangle + \mathcal{E}_{2}(t) \left\vert 0,0,1 \right\rangle,
+\end{eqnarray}
+with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equation set equivalent to the mode coupling theory result, Eq.(\ref{eq:ddiff}) up to substitution of backwards time by propagation distance, or, better, 
+\begin{eqnarray}
+	i \partial_t	
+	\left( \begin{array}{c} 
+		\mathcal{E}_{0}(t) \\
+		\mathcal{E}_{1}(t) \\
+		\mathcal{E}_{2}(t)
+	\end{array} \right) =
+	\left( \begin{array}{ccc} 
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		\mathcal{E}_{0}(t) \\
+		\mathcal{E}_{1}(t) \\
+		\mathcal{E}_{2}(t)
+	\end{array} \right) .
+\end{eqnarray}
+This is just off-topic, we really will focus on this in the next section, right now we want to focus on something else.
+
+We can use quadratures,
+\begin{eqnarray}
+\hat{q} = \frac{1}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right), ~ 
+\hat{p} = \frac{i}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right),
+\end{eqnarray}
+and consider classical variables, where we have accounted for the change in the time propagation,
+\begin{eqnarray}
+	i \partial_t	
+	\left( \begin{array}{c} 
+		p_{0}(t) \\
+		p_{1}(t) \\
+		p_{2}(t)
+	\end{array} \right) =
+	\left( \begin{array}{ccc} 
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		q_{0}(t) \\
+		q_{1}(t) \\
+		q_{2}(t)
+	\end{array} \right) , \\
+i \partial_t	
+	\left( \begin{array}{c} 
+		q_{0}(t) \\
+		q_{1}(t) \\
+		q_{2}(t)
+	\end{array} \right) = -
+	\left( \begin{array}{ccc} 
+		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
+		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
+		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
+	\end{array} \right)
+	\left( \begin{array}{c} 
+		p_{0}(t) \\
+		p_{1}(t) \\
+		p_{2}(t)
+	\end{array} \right) ,
+\end{eqnarray}
+
+
+
+\textcolor{red}{This can also be done with the idea of Euler angles for $SU(3)$ in \cite{Nelson1967p857}}
+
+In the classical limit, the canonical pair provided by the creation and annihilation operators can be replaced by the classical canonical pair of intensity and phase, $\left\{ n_{j}, \phi_{j} \right\}$, $ \hat{a}_{j} \rightarrow \sqrt{n_{j}}e^{i \phi_{j}}$. 
+This delivers a classical Hamiltonian, 
+\begin{eqnarray}
+H(t) = \sum_{j=0}^{2} \omega_{j}(t) n_{j}  
+	+ \sum_{j \neq k = 0}^{2} g_{jk} \sqrt{n_{j} n_{k}} \cos \left( \phi_{j} - \phi_{k} \right),
+\end{eqnarray}
+the equations of motion for the canonical pairs are 
+\begin{eqnarray}
+\partial_t n_j = \frac{\partial H}{\partial \phi_j}\\
+\partial_t \phi_j = - \frac{\partial H}{\partial n_j}  
+\end{eqnarray}
+and these are the coupled mode equations describing the evolution of intensity and phase.
+
+Classicam mechanics: if the three normal modes frequencies, e.g. eigenvalues of the mode-coupling matrix in Eq.(9), are commesurate then the propagated complex fields will be periodic \cite{Goldstein1980}. 
+
+In order to visualize the dynamics of the system we will choose a (pseudo?) Poincar\'e phase-space given by the square roots of the three waveguide intensities $(\vert \mathcal{E}_{0} \vert,\vert \mathcal{E}_{1} \vert,\vert \mathcal{E}_{2} \vert )$.
+Here  normal mode frequencies that are rational multiples of each other, commesurate, will translate into well-defined closed trajectories. For incommesurate normal frequencies the trajectories will be ergodic and fill a region of phase space defined by the energy of the motion \cite{Goldstein1980}.
+
+
+Note that requiring a normalized intensity in the optical system translates into $\sum_{j} n_{j} = 1$, this obviates the use of $\partial_{t} n_{2}$ and suggest taking the phase at the $j=2$ as reference as $\partial_{t} \phi_{2} = 0$. This reduces the problem by one degree of freedom to two degrees of freedom.
+
+Numerically, it makes no difference to solve Eq.(9) or use Eq.(11)-Eq.(12).
+Figure \ref{fig: Fig2} shows the squared root intensities plot for the numerical propagation of random parameter sets and initial conditions. The absolute value of the difference between the numerical propagation from the complex field or the intensity-phase picture was always below $10^{-5}$.
+We are ploting the absolute amplitudes $(\vert E_{0}(z) \vert, \vert E_{1}(z) \vert, \vert E_{2}(z) \vert )$, thus the trajectories will are on an octant of the unit sphere.
+
+\begin{figure}[htbp]
+\centering
+\fbox{\includegraphics[width=\linewidth]{Fig2.pdf}}
+\caption{(Color online) Absolute amplitude trajectories, $(\vert E_{0}(z) \vert, \vert E_{1}(z) \vert, \vert E_{2}(z) \vert )$, for initial random fields impinging random optical trimmers with constant parameters.}
+\label{fig: Fig2}
+\end{figure}
+
+Dealing with the problem in the intensity-phase picture does not make it easier to solve but it provides insight.
+Given a trimmer parameter set, $S(z) = \left\{ \omega_{j}(z), g_{jk}(z) \right\}$, and an initial field configuration, $\mathcal{E}(0) = \left\{ \mathcal{E}_{j}(0) \right\}$, it is possible to calculate the energy of the orbit, $H(0) = \epsilon\left(S(0), \mathcal{E(0)}\right)$. Then, it is possible to find the conditions that define the envelope of such orbit in the absolute value of the field amplitude plots via simultaneous elimination of the phase variables with $H(z) - \epsilon = 0 $ and $\partial_t \phi_j = 0$ for $j= 0,1$.
+
+
+\section{Envelope}
+
+We revisit the classical Hamiltonian for that governs the 
+equations of motion for the canonical pair of intentsity and 
+phase:
+
+\begin{equation} 
+H = \sum_{j=0}^{2} \omega_{j}(t) n_{j}  
++ \sum_{j \neq k = 0}^{2} g_{jk} \sqrt{n_{j} n_{k}} \cos \left( \phi_{j} - \phi_{k} \right),\label{eq:clhamm}	
+\end{equation}
+
+It proves viabable to notice that for a given Energy and 
+given set of parameters there is an infinity number of trajectories.
+Here we will first be concerned with finding the outer boundary, or 
+envelope, of the union of all trajectories pertaining to Energy 
+E. 
+Equation (\cite{eq:clhamm}) reveals that for given intensities 
+$n_1,n_2$ and $n_3$ the energy is maximised when all three phases
+are zero. Consequently the envelope is defined by all pairs
+$n_1,n_2$ and $n_3$ which fulfil following condition
+
+
+\begin{equation}
+H_{Bndry}(n_1,n_2,n_3) := \sum_{j=0}^{2} \omega_{j}(t) n_{j}  
++ \sum_{j \neq k = 0}^{2} g_{jk} \sqrt{n_{j} n_{k}} = E,	
+\end{equation}
+
+Due to energy conservation, the three intensities are not 
+independent and we can safely omit the third intensity in the 
+following discussion, ie. 
+$H_{Bndry}(n_1,n_2,n_3) \rightarrow H_{Bndry}(n_1,n_2)$.
+Numerically, once a given set of initial intensities and/or
+energy was chosen $H_{Bndry}(n_1,n_2) \rightarrow E$ the 
+trajectory of the envelope is characterised by the following differential equation:    
+\begin{eqnarray}
+\frac{\partial H_{Bndry}}{\partial n_1}\delta n_1 + 
+\frac{\partial H_{Bndry}}{\partial n_2}\delta n_2 = 0
+\end{eqnarray}
+
+Having obtained the envelope of the union of all trajectories we 
+can turn the case of single trajectories. We recall that we 
+focus our interest on parameters such that the corresponding 
+trajectories are incommensurate, ie. they fill all the area inside
+a closed loop. To find the envelope of a certain trajectory, that 
+is the aforementioned loop, we assume we
+already have obtained 
+the explicit solution for the trajectory.
+Our solution is most easily expressed as 
+solution to equation () which is given by:
+\begin{eqnarray}
+\mathcal{E} = a_1 e_1 e^{i \omega_1 t} + a_2 e_2 e^{i \omega_2 t} +a_3 e_3 e^{i \omega_3 t} 
+\end{eqnarray}
+where are $e_1,e_2,e_3$ are the eigenvectors, 
+$\omega_1, \omega_2,\omega_3$ are the 
+corresponding eigenfrequencies and $a1, a2, a3$ are parameters in accordance with the initial values $n_1$ and $n_2$. Note 
+that $n_j = \mathcal{E}\mathcal{E^*}$
+\textcolor{red}{The following is a bit handwaving, we probably need to explain it better}
+Incommensurate trajectories are 
+characterised by broken periodicity and 
+we can introduce a phase relevant parameter which controls the incommensurability: 
+\begin{eqnarray}
+\mathcal{E}(t, \phi) = a_1 e_1 e^{i \omega_1 t + \phi} + a_2 e_2 e^{i \omega_2 t} +a_3 e_3 e^{i \omega_3 t} 
+\end{eqnarray}
+The parameter $\phi$ acts such that 
+a given trajectory or more presily a section of the trajectory is offset in a
+direction pernedicular to the trajectory.
+This howerver can not hold true in at the 
+boundery or envelope and hence we establish
+following condition for the envelope:
+\begin{eqnarray}
+\frac{ (\frac{\partial n_1}{\partial t}) }{ (\frac{\partial n_2}{\partial t}) } = \frac{( \frac{\partial n_1}{\partial \phi})}{(\frac{\partial n_2}{\partial \phi}) } 	
+\end{eqnarray}
+which is equal to:
+\begin{eqnarray}
+D(t, \phi):=Det[\left(  \begin{array}{cc} 
+\frac{\partial n_1}{\partial t} & \frac{\partial n_2}{\partial t} \\
+\frac{\partial n_1}{\partial \phi} & \frac{\partial n_2}{\partial \phi} 
+\end{array} \right)] = 0
+\end{eqnarray}
+Accordingly, the envelope can numerically
+calculated from following differential equation:
+\begin{eqnarray}
+\frac{\partial D(t,\phi)}{\partial t} \delta t +
+\frac{\partial D(t,\phi)}{\partial \phi} \delta \phi = 0
+\end{eqnarray}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % A short introduction to $SU(3)$ and the formal solution to the most general model
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Group theory and propagator}
+
+
+
+
+\section{Group theory and propagators}
+
+\textcolor{red}{Actions of elements of $su(3)$ on elements of $SU(3)$ \cite{Nelson1967p857}}
+
+\textcolor{red}{Coherent states for $SU(3)$ \cite{Gnutzmann1998p9871}}
+
+\textcolor{red}{$SU(3)$ intelligents states on terms of harmonic oscillators \cite{Rowe1999p3604}}
 
 Group theory, as an instrument to explore the underlying structure of mathematical models describing the physical world, brings a layer of abstraction into physics that allows deeper insight.
-For example, unitary matrices of rank three, just like our mode-coupling matrix $\hat{H}(z)$ in Eq.(\ref{eq:Eq1}), are commonly characterized by the special unitary group $SU(3)$,
-\begin{eqnarray}
-	\hat{H}(z) &=& \textrm{\textcolor{red}{diagonal elements are missing}} + \\
-	&&  g_{01}(z) \left( \hat{I}_{+} + \hat{I}_{-} \right) + g_{12}(z) \left( \hat{U}_{+} + \hat{U}_{-} \right)\nonumber \\
-	 & & +  g_{02}(z) \left( \hat{V}_{+} + \hat{V}_{-} \right).
-\end{eqnarray}
+For example, unitary matrices of rank three, just like our mode-coupling matrix in Eq.(\ref{eq:hmlt}), are commonly characterized by the special unitary group $SU(3)$.
 This group is a household name in physics that is often related to the work of Gell-Mann \cite{GellMann1961}.
 Typically, the fundamental building blocks of this group are given by the well known Gell-Mann matrices, which provide a punctual description of the underlying algebraic structure.
-Here, however, we choose a different representation for the group \cite{Ticciati1999}, 
+Here, however, we will choose a different representation for the group \cite{Ticciati1999}, 
 \begin{eqnarray}
 \hat{I}_{0} = \frac{1}{2} \left( \begin{array}{ccc} 1&0&0\\0&-1&0\\0&0&0 \end{array}\right), \quad  
 \hat{Y}_{0} = \frac{1}{3} \left( \begin{array}{ccc} 
@@ -115,44 +321,60 @@ Here, however, we choose a different representation for the group \cite{Ticciati
 \hat{V}_{-} = \left( \begin{array}{ccc} 0&0&0\\0&0&0\\1&0&0 \end{array}\right), \label{eq:gens}
 \end{eqnarray}
 due to the fact that we can understand matrices $\hat{I}_{\pm}$, $\hat{U}_{\pm}$ and $\hat{V}_{\pm}$ as those describing the coupling of the electromagnetic field between waveguides zero and one, one and two, and zero and two, in that order.
-The literature provides us with actions of elements of the $su(3)$ Lie algebra on elements of the $SU(3)$ group \cite{Nelson1967p857}, the standard Wei-Norman technique for $SU(3)$ \cite{Dattoli1987p1582}, and, here, we will show that the physical restrictions of the optical trimmer allows for further simplification.
-
+Thus, our mode-coupling matrix, in terms of the $SU(3)$ group, is given by the following expression,
+\begin{eqnarray}
+	\hat{H} &=& 
+	(\omega_1 - \omega_2) \hat{I}_{0}
+	+(\omega_1 + \omega_2) 
+	(\frac{\mathbf{1}}{3} + \frac{\hat{Y}_{0}}{2})
+	\nonumber \\
+	&&+g_{01}(z) \left( \hat{I}_{+} + \hat{I}_{-} \right) + g_{12}(z) \left( \hat{U}_{+} + \hat{U}_{-} \right)\nonumber \\
+	 & & +  g_{02}(z) \left( \hat{V}_{+} + \hat{V}_{-} \right).
+\end{eqnarray}
+The standard Wei-Norman technique for SU(3) is revisited in Ref. \cite{Dattoli1987p1582}, aere, e will show that the physical restrictions of the optical trimmer allows for further simplification.
 
 Now, let us revisit the power of using underlying symmetries to evaluate propagation in arrays of coupled waveguides \cite{VillanuevaVergara2015p}. 
-Any given normalized field vector that solves the Schr\"odinger-like mode coupling equation for a finite dimension system can be written in terms of a $su(3)$ Lie algebra, in other words, the propagator can also be given by the following expression, 
+Any given normalized field vector that solves the Schr\"odinger-like mode coupling equation, Eq.(\ref{eq:diff}), 
+\begin{eqnarray}
+	\vert \mathcal{E}(z) \rangle = \hat{U}(z)  \vert 	\mathcal{E}(0) \rangle, \label{eq:sol}
+\end{eqnarray}
+can be written in terms of a $su(3)$ Lie algebra, in other words, the propagator is given by the following expression, 
 \begin{eqnarray}
 	\hat{U}(z) = \prod_{j=1}^{8} e^{i \theta_{j}(z) \hat{X}_{j}}.
 \end{eqnarray}
-where the algebra elements, $e^{i \theta_{j}(z) \hat{X}_{j}}$, are just the exponential map of the group generators, Eq.(\ref{eq:gens}), the functions $\theta_{j}(z)$ are complex functions ruled by the dynamics provided by the mode-coupling matrix.
+where the algebra elements, $e^{i \theta_{j}(z) \hat{X}_{j}}$, are just the exponential map of the group generators, Eq.(\ref{eq:gens}), the functions $\theta_{j}(z)$ are complex functions ruled by the dynamics provided by the mode-coupling matrix, and the impinging field amplitudes are collected in the normalized initial field vector $\vert \mathcal{E}(0) \rangle$.
 
 Note, there is no apriori ordering of $su(3)$ elements to write the propagator. 
 However, the values of the prefixed $\theta_{j}(z)$ functions do depend on the chosen order.
 We will choose a particular ordering,
 \begin{eqnarray}
-\hat{U}(z) &=& e^{i \iota_{+}(z) \hat{I}_{+}} e^{i \mu_{+}(z) \hat{U}_{+}}  
+\hat{U}(z) &=& e^{i \phi(z)\mathbb{1} }e^{i \iota_{+}(z) \hat{I}_{+}} e^{i \mu_{+}(z) \hat{U}_{+}}  
 e^{i \nu_{+}(z) \hat{V}_{+}} e^{ \iota_{0}(z) \hat{I}_{0}} \nonumber \\ 
 && \times e^{i y_{0}(z) \hat{Y}}  e^{i \nu_{-}(z) \hat{V}_{-}} e^{i \mu_{-}(z) \hat{U}_{-}} e^{i \iota_{-}(z) \hat{I}_{-}}, \label{eq:prop}
 \end{eqnarray}
 that keeps us in line with the idea of understanding propagation through waveguide lattices as generalized Gilmore-Perelomov coherent states \cite{VillanuevaVergara2015p}.
 
-Substituting the propagated field vector, Eq.(\ref{eq:Eq3}) considering as propagator Eq.(\ref{eq:prop}), into the mode coupling equation, Eq.(\ref{eq:diff}), is a cumbersome but straightforward operation that yields a set of eight coupled differential equations,
+Substituting the propagated field vector, Eq.(\ref{eq:sol}) considering as propagator Eq.(\ref{eq:prop}), into the mode coupling equation, Eq.(\ref{eq:diff}), is a cumbersome but straightforward operation that yields a set of eight coupled differential equations,
 \begin{eqnarray}
-	\iota_{+}^{\prime} &=& g_{01} \left( \iota_{+}^2 + 1 \right) + g_{12}  \iota_{+}  \nu_{+} - i  g_{03}   \nu_{+},    \label{eq:iota} \\
-	\iota_{0}^{\prime} &=& i \left[ \left(- 2 g_{01} + i g_{02} \mu_{+}  \right) \iota_{+}  - g_{02} \nu_{+} + g_{12} \mu_{+} \right], \\
+	\iota_{+}^{\prime} &=& g_{01} \left( \iota_{+}^2 + 1 \right) + g_{02}  \iota_{+}  (\nu_{+}-\omega_1+\omega_2)\nonumber\\ &&- i  g_{12}   \nu_{+},    \label{eq:iota} \\
+	\iota_{0}^{\prime} &=& i \left[ \left(- 2 g_{01} + i g_{02} \mu_{+}  \right) \iota_{+}  - g_{02} \nu_{+} + g_{12} \mu_{+} \right]\nonumber \\
+	&&+ \omega_1 - \omega_2, \\
 	\iota_{-}^{\prime} &=& e^{i \iota_0} \left( g_{1} - i g_{02}\mu_{+} \right), \\
 	\mu_{+}^{\prime} &=& \left( - g_{01} + i  g_{02} \mu_{+} \right) \iota_{+} \mu_{+}    +  g_{12} \left( \mu_{+}^2 +  1 \right)\nonumber \\
-	&&  +  \left( i  g_{01} + g_{02} \mu_{+} \right) \nu_{+},   \\
-	\nu_{+}^{\prime} &=& g_{01} \iota_{+} 
-	\nu_{+} + g_{02} (  \nu_{+} ^2
+	&&  +  \left( i  g_{01} + g_{02} \mu_{+} \right) \nu_{+}+i \mu_{+}\omega_2,   \\
+	\nu_{+}^{\prime} &=& \nu_{+}(g_{01} \iota_{+}
+	+i\omega_1) 
+	 + g_{02} (  \nu_{+} ^2
 	+ 1)-i  g_{12} \iota_{+}, \label{eq:mu} \\
 	y_{0}^{\prime} &=& -i\frac{3}{2}  
 	[ g_{02}   \nu_{+}+  \mu_{+}  
-	( g_{12}+i  g_{02} \iota_{+})],  \\
+	( g_{12}+i  g_{02} \iota_{+})]\nonumber \\&&+\frac{1}{2}(\omega_1+\omega_2),  \\
 	\nu_{-}^{\prime} &=& e^{\frac{1}{2}i(2y_0+\iota_0)}
 	g_{02} +i e^{i\iota_{0}}  \mu_{-}  (i g_{02} 
 	 \mu_{+}-  g_{01}),  \\
 	\mu_{-}^{\prime} &=&  e^{i y_0-\frac{1}{2}i \iota_0}
-	( g_{12}+i  g_{02} \iota_{+}), 
+	( g_{12}+i  g_{02} \iota_{+}),\\
+	\phi ^{\prime} &=& \frac{1}{3}(\omega_1+\omega_2)
 \end{eqnarray}
 where, for the sake of space, we have used $f \equiv f(z)$ and $f' \equiv \partial_{z} f(z)$ for all propagation dependent auxiliary functions and couplings.
 
@@ -173,13 +395,13 @@ Therefore, they are decoupled from the rest.
 Nonetheless, these two equations prove intractable and we will pursue a different route to finding a solution.
 For reasons that will become apparent in a moment, we introduce a set of five auxiliary functions,
 \begin{eqnarray}
-	\Gamma(z) &=& e^{-\frac{3}{2} i y_{0}(z)} \\
-	\Delta(z)&=& i e^{-\frac{3}{2} i y_{0}(z)} \mu_{\pm}(z) \\
-	   \Theta(z)&=& e^{-\frac{2}{3}i y_0(z)} (-\iota_{\pm}(z) \mu_{\pm}(z) + i \nu_{\pm}(z)) \\
-	\Pi(z)&=& e^{-\frac{2}{3} i y_{0} (z)}
+	\Gamma(z) &=& e^{i \phi(z)-\frac{3}{2} i y_{0}(z)} \\
+	\Delta(z)&=& i e^{i \phi(z)-\frac{3}{2} i y_{0}(z)} \mu_{\pm}(z) \\
+	   \Theta(z)&=& e^{i \phi(z)-\frac{2}{3}i y_0(z)} (-\iota_{\pm}(z) \mu_{\pm}(z) + i \nu_{\pm}(z)) \\
+	\Pi(z)&=& e^{i \phi(z)-\frac{2}{3} i y_{0} (z)}
 	    (e^{i y_0 (z)-\frac{1}{2} i \iota_0 (z)}
 		-\mu_{\pm} (z)^2) \\
-	\Sigma(z)&=& e^{-\frac{2}{3} i y_0(z)} (i \iota_{\pm}(z) \Pi(z)-\mu_{\pm} (z) \nu_{\pm}(z))
+	\Sigma(z)&=& e^{i \phi(z)-\frac{2}{3} i y_0(z)} (i \iota_{\pm}(z) \Pi(z)-\mu_{\pm} (z) \nu_{\pm}(z))
 \end{eqnarray}
 These equations can be further decoupled,
 \begin{eqnarray}
@@ -227,6 +449,8 @@ y_0(z) &=&  \dfrac{3}{2} i \log (\Gamma(z))\label{eq:yzeto}\\
 \iota_0(z) &=& 2 i \log (\frac{\Gamma(z)\Pi(z)-\Delta(z)^2}{\sqrt{\Gamma(z)}}) \label{eq:izero}
 \end{eqnarray}
 Note that the phase functions $y_0(z)$ and $i_0(z)$ are of logarithmical nature and the rest are quotients of the products of the solution basis. 
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Case of constant couplings
@@ -464,122 +688,6 @@ e^{i\zeta\bar{\varphi}}
 \end{equation}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%
-%%%% DRAFT
-%//////////////////////////////////////////////%//////
-
-\section{Classical mechanics and envelopes}
-In quantum mechanics, the Hamiltonian for three coupled harmonic oscillators, 
-\begin{eqnarray}
-	\hat{H}(t) = \sum_{j=0}^{2} \omega_j(t) \hat{a}^{\dagger}_j \hat{a}_{j} + \sum_{j\neq k=0}^{2} g_{jk}(t) \hat{a}^{\dagger}_j \hat{a}_k,
-\end{eqnarray}
-in the single photon limit,
-\begin{eqnarray}
-	\left\vert \psi(t) \right\rangle = \mathcal{E}_{0}(t) \left\vert 1, 0, 0 \right\rangle  +
-	\mathcal{E}_{1}(t) \left\vert 0,1,0 \right\rangle + \mathcal{E}_{2}(t) \left\vert 0,0,1 \right\rangle,
-\end{eqnarray}
-with $ \sum_{j} \vert \mathcal{E}_{j}(z) \vert^2 = 1$, yields a differential equation set equivalent to the mode coupling theory result, Eq.(\ref{eq:ddiff}) up to substitution of backwards time by propagation distance, or, better, 
-\begin{eqnarray}
-	i \partial_t	
-	\left( \begin{array}{c} 
-		\mathcal{E}_{0}(t) \\
-		\mathcal{E}_{1}(t) \\
-		\mathcal{E}_{2}(t)
-	\end{array} \right) =
-	\left( \begin{array}{ccc} 
-		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
-		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
-		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
-	\end{array} \right)
-	\left( \begin{array}{c} 
-		\mathcal{E}_{0}(t) \\
-		\mathcal{E}_{1}(t) \\
-		\mathcal{E}_{2}(t)
-	\end{array} \right) .
-\end{eqnarray}
-This is just off-topic, we really will focus on this in the next section, right now we want to focus on something else.
-
-We can use quadratures,
-\begin{eqnarray}
-\hat{q} = \frac{1}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right), ~ 
-\hat{p} = \frac{i}{\sqrt{2}} \left( \hat{a}^{\dagger} + \hat{a} \right),
-\end{eqnarray}
-and consider classical variables, where we have accounted for the change in the time propagation,
-\begin{eqnarray}
-	i \partial_t	
-	\left( \begin{array}{c} 
-		p_{0}(t) \\
-		p_{1}(t) \\
-		p_{2}(t)
-	\end{array} \right) =
-	\left( \begin{array}{ccc} 
-		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
-		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
-		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
-	\end{array} \right)
-	\left( \begin{array}{c} 
-		q_{0}(t) \\
-		q_{1}(t) \\
-		q_{2}(t)
-	\end{array} \right) , \\
-i \partial_t	
-	\left( \begin{array}{c} 
-		q_{0}(t) \\
-		q_{1}(t) \\
-		q_{2}(t)
-	\end{array} \right) = -
-	\left( \begin{array}{ccc} 
-		\omega_{0}(t)  & g_{01}(t) & g_{02}(t) \\
-		g_{01}(t) & \omega_{1}(t) & g_{12}(t) \\
-		g_{02}(t) & g_{12}(t) & \omega_{2}(t)
-	\end{array} \right)
-	\left( \begin{array}{c} 
-		p_{0}(t) \\
-		p_{1}(t) \\
-		p_{2}(t)
-	\end{array} \right) ,
-\end{eqnarray}
-
-
-
-\textcolor{red}{This can also be done with the idea of Euler angles for $SU(3)$ in \cite{Nelson1967p857}}
-
-In the classical limit, the canonical pair provided by the creation and annihilation operators can be replaced by the classical canonical pair of intensity and phase, $\left\{ n_{j}, \phi_{j} \right\}$, $ \hat{a}_{j} \rightarrow \sqrt{n_{j}}e^{i \phi_{j}}$. 
-This delivers a classical Hamiltonian, 
-\begin{eqnarray}
-H(t) = \sum_{j=0}^{2} \omega_{j}(t) n_{j}  
-	+ \sum_{j \neq k = 0}^{2} g_{jk} \sqrt{n_{j} n_{k}} \cos \left( \phi_{j} - \phi_{k} \right),
-\end{eqnarray}
-the equations of motion for the canonical pairs are 
-\begin{eqnarray}
-\partial_t n_j = \frac{\partial H}{\partial \phi_j}\\
-\partial_t \phi_j = - \frac{\partial H}{\partial n_j}  
-\end{eqnarray}
-and these are the coupled mode equations describing the evolution of intensity and phase.
-
-Classicam mechanics: if the three normal modes frequencies, e.g. eigenvalues of the mode-coupling matrix in Eq.(9), are commesurate then the propagated complex fields will be periodic \cite{Goldstein1980}. 
-
-In order to visualize the dynamics of the system we will choose a (pseudo?) Poincar\'e phase-space given by the square roots of the three waveguide intensities $(\vert \mathcal{E}_{0} \vert,\vert \mathcal{E}_{1} \vert,\vert \mathcal{E}_{2} \vert )$.
-Here  normal mode frequencies that are rational multiples of each other, commesurate, will translate into well-defined closed trajectories. For incommesurate normal frequencies the trajectories will be ergodic and fill a region of phase space defined by the energy of the motion \cite{Goldstein1980}.
-
-
-Note that requiring a normalized intensity in the optical system translates into $\sum_{j} n_{j} = 1$, this obviates the use of $\partial_{t} n_{2}$ and suggest taking the phase at the $j=2$ as reference as $\partial_{t} \phi_{2} = 0$. This reduces the problem by one degree of freedom to two degrees of freedom.
-
-Numerically, it makes no difference to solve Eq.(9) or use Eq.(11)-Eq.(12).
-Figure \ref{fig: Fig2} shows the squared root intensities plot for the numerical propagation of random parameter sets and initial conditions. The absolute value of the difference between the numerical propagation from the complex field or the intensity-phase picture was always below $10^{-5}$.
-We are ploting the absolute amplitudes $(\vert E_{0}(z) \vert, \vert E_{1}(z) \vert, \vert E_{2}(z) \vert )$, thus the trajectories will are on an octant of the unit sphere.
-
-\begin{figure}[htbp]
-\centering
-\fbox{\includegraphics[width=\linewidth]{Fig2.pdf}}
-\caption{(Color online) Absolute amplitude trajectories, $(\vert E_{0}(z) \vert, \vert E_{1}(z) \vert, \vert E_{2}(z) \vert )$, for initial random fields impinging random optical trimmers with constant parameters.}
-\label{fig: Fig2}
-\end{figure}
-
-Dealing with the problem in the intensity-phase picture does not make it easier to solve but it provides insight.
-Given a trimmer parameter set, $S(z) = \left\{ \omega_{j}(z), g_{jk}(z) \right\}$, and an initial field configuration, $\mathcal{E}(0) = \left\{ \mathcal{E}_{j}(0) \right\}$, it is possible to calculate the energy of the orbit, $H(0) = \epsilon\left(S(0), \mathcal{E(0)}\right)$. Then, it is possible to find the conditions that define the envelope of such orbit in the absolute value of the field amplitude plots via simultaneous elimination of the phase variables with $H(z) - \epsilon = 0 $ and $\partial_t \phi_j = 0$ for $j= 0,1$.
-
-
 
 \section{Conclusion}
 We have shown that it is possible to solve the light evolution
@@ -618,9 +726,6 @@ third core.
 
 
 \end{document}
-
-\textcolor{red}{Coherent states for $SU(3)$ \cite{Gnutzmann1998p9871}}
-
 
 A secondary motivation lies in the fact that conversion from amplitude modulation to phase modulation, as well as the converse, has been shown in a $PT$-symmetric three-waveguide coupler photonic devices with $SO(2,1)$ symmetry that may provide an alternative platform to Kerr nonlinear three-waveguide couplers which have been shown to provide all-optical spatial switching \cite{Finlayson1990p2276,Stegeman1990p95,Artigas1996p53,Chen1997p287,Liu2003p2930,Khan2008p9417,Tao2011p071104} and logic gates \cite{Menezes2007p1191,Menezes2007p107,Coelho2013p731}
 
