@@ -145,19 +145,42 @@ V.~Lakshminarayanan, M.~L. Calvo, and T.~Alieva, eds., \emph{Mathematical
 M.~Gell-Mann, \enquote{The eightfold way: A theory of strong interaction
   symmetry,} Tech. Rep. CTSL20, California Institute of Technology (1961).
 
+\bibitem{Neeman1961p222}
+Y.~Ne'eman, \enquote{Derivation of strong interactions from a gauge
+  invariance,} Nucl. Phys. \textbf{26}, 222 -- 229 (1961).
+
 \bibitem{Ticciati1999}
 R.~Ticciati, \emph{Quantum field theory for mathematicians} (Cambridge
   University Press, Cambridge, U. K., 1999).
+
+\bibitem{Wei1963p575}
+J.~Wei and E.~Norman, \enquote{Lie algebraic solution of linear differential
+  equations,} J. Math. Phys. \textbf{4}, 575 -- (1963).
+
+\bibitem{Dattoli1987p1582}
+G.~Dattoli, P.~D. Lazzaro, and A.~Torre, \enquote{Su(1,1), su(2) and su(3)
+  coherence-preserving hamiltonians and time-ordering techniques,} Phys. Rev. A
+  \textbf{35}, 1582 -- 1589 (1987).
+
+\bibitem{Dattoli1991p1247}
+G.~Dattoli and A.~Torre, \enquote{Matrix representation of the evolution
+  operator for the su(3) dynamics,} Nuovo Cimento \textbf{106}, 1247 -- 1256
+  (1991).
 
 \bibitem{Nelson1967p857}
 T.~J. Nelson, \enquote{A set of harmonic functions for the group su(3) as
   specialized matrix elements of a general finite transformation,} J. Math.
   Phys. \textbf{8}, 857 -- 863 (1967).
 
-\bibitem{Dattoli1987p1582}
-G.~Dattoli, P.~D. Lazzaro, and A.~Torre, \enquote{Su(1,1), su(2) and su(3)
-  coherence-preserving hamiltonians and time-ordering techniques,} Phys. Rev. A
-  \textbf{35}, 1582 -- 1589 (1987).
+\bibitem{Gnutzmann1998p9871}
+S.~Gnutzmann and M.~Ku\'s, \enquote{Coherent states and the classical limit on
+  irreducible $su(3)$ representations,} J. Phys. A: Math. Gen. \textbf{31},
+  9871 -- 9896 (1998).
+
+\bibitem{Rowe1999p3604}
+D.~J. Rowe, B.~C. Sanders, and H.~de~Guise, \enquote{Representations of the
+  weyl group and wigner functions for su(3),} J. Math. Phys. \textbf{40}, 3604
+  -- 3615 (1999).
 
 \bibitem{Goldstein1980}
 H.~Goldstein, \emph{Classical mechanics} (Addison-Wesley, U.S.A., 1980).
